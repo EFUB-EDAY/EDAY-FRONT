@@ -49,7 +49,7 @@ const AnswerPage = () => {
                 50원, 컬러는 약 300~400원 정도의 가격을 지불해야 해요. 용지만
                 들고 간다면 무료로 인쇄가 가능한 곳은 학생문화관 최대 네줄
                 우하하학
-                {dDay === 1 && <img src={ewhaGreen} alt='이화 그린' />}
+                {dDay === '1' && <img src={ewhaGreen} alt='이화 그린' />}
             </AnswerInfo>
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 <TopBtn>
