@@ -46,27 +46,16 @@ const MainPage = () => {
                 closeList: [{ dDay: 4 }, { dDay: 3 }, { dDay: 2 }, { dDay: 1 }],
             },
         });
-        setToday(2);
+        setToday(5);
         setOpenList(
-            [
-                { dDay: 7 },
-                { dDay: 6 },
-                { dDay: 5 },
-                { dDay: 4 },
-                { dDay: 3 },
-                { dDay: 2 },
-            ].map(row => row.dDay),
+            [{ dDay: 7 }, { dDay: 6 }, { dDay: 5 }].map(row => row.dDay),
         );
-        setDoneList(
-            [
-                { dDay: 7 },
-                { dDay: 6 },
-                { dDay: 5 },
-                { dDay: 4 },
-                { dDay: 2 },
-            ].map(row => row.dDay),
+        setDoneList([{ dDay: 7 }, { dDay: 6 }].map(row => row.dDay));
+        setCloseList(
+            [{ dDay: 4 }, { dDay: 3 }, { dDay: 2 }, { dDay: 1 }].map(
+                row => row.dDay,
+            ),
         );
-        setCloseList([{ dDay: 1 }].map(row => row.dDay));
     }, []);
 
     // 0 - closeList (src close)
@@ -115,7 +104,7 @@ const MainPage = () => {
     useEffect(() => {}, [isTodayDone]);
 
     useEffect(() => {
-        console.log(dDayState);
+        // console.log(dDayState);
     });
 
     const [isSidebar, setIsSidebar] = useState(false);

@@ -183,7 +183,3 @@
             format('truetype');
     font-display: swap;
 }
-
-.wrapper {
-    border: 1px solid gray;
-}
