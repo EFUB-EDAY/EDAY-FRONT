@@ -40,12 +40,13 @@ const Content2 = () => {
             ③ 공대 후문으로 들어가요.`}
             />
             <MapContainer margin='8px'>
-                <MapImg src={map1} width='336px' height='396px' />
+                <object type='image/svg+xml' data={map1}>
+                    <MapImg src={map1} width='calc(100% - 6px)' />
+                </object>
                 <MapImg
                     className='point'
                     src={point1}
-                    width='336px'
-                    height='396px'
+                    width='calc(100% - 6px)'
                 />
             </MapContainer>
 
@@ -72,12 +73,13 @@ const Content2 = () => {
             ③ 포스코관 루트를 따라 공대 오르막길을 올라가요.`}
             />
             <MapContainer margin='20px'>
-                <MapImg src={map2} width='336px' height='396px' />
+                <object type='image/svg+xml' data={map2}>
+                    <MapImg src={map2} width='calc(100% - 6px)' />
+                </object>
                 <MapImg
                     className='point'
                     src={point2}
-                    width='336px'
-                    height='396px'
+                    width='calc(100% - 6px)'
                 />
             </MapContainer>
 
@@ -101,12 +103,13 @@ const Content2 = () => {
                 type='top'
             />
             <MapContainer margin='20px'>
-                <MapImg src={map3} width='198px' height='193px' />
+                <object type='image/svg+xml' data={map3}>
+                    <MapImg src={map3} width='198px' />
+                </object>
                 <MapImg
                     className='point'
                     src={point3}
                     width='54px'
-                    height='57px'
                     top='59px'
                     left='147px'
                 />
@@ -138,7 +141,6 @@ const MapImg = styled.img`
     align-self: center;
 
     width: ${props => props.width};
-    height: ${props => props.height};
 
     &.point {
         position: absolute;

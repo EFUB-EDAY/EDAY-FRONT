@@ -64,6 +64,7 @@ const Box = styled.div`
         background-color: var(--green2);
 
         font-size: 16px;
+        font-weight: 500;
         color: rgba(250, 255, 248, 1);
         cursor: pointer;
     }
