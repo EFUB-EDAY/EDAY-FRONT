@@ -71,7 +71,7 @@ const SideBar = props => {
                             <Right onClick={() => nav('/mypage')}>
                                 마이페이지
                                 <BsChevronRight
-                                    size='14'
+                                    size='12'
                                     color='var(--white)'
                                 />
                             </Right>
@@ -210,18 +210,19 @@ const Flex = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 `;
 const Level = styled.div`
     background-color: var(--green2);
     color: var(--black);
     display: flex;
     width: 40px;
-    height: 28px;
-    padding: 0 8px;
+    height: 22px;
+    padding: 0 4px;
     justify-content: center;
     align-items: center;
-    border-radius: 14px;
-    font-size: 14px;
+    border-radius: 11px;
+    font-size: 12px;
     font-weight: 500;
 `;
 const Right = styled.div`
@@ -230,7 +231,7 @@ const Right = styled.div`
     justify-content: flex-end;
     align-items: center;
     color: var(--white);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     svg {
         margin-left: 8px;
@@ -245,7 +246,7 @@ const Footer = styled.div`
     .text1 {
         color: var(--lessblack);
         font-weight: 600;
-        padding: 15px 0 0 15px;
+        padding: 17px 0 0 16px;
     }
     .border {
         width: 100%;
@@ -257,6 +258,6 @@ const Footer = styled.div`
         text-decoration: none;
         font-size: 12px;
         font-weight: 500;
-        padding-left: 15px;
+        padding-left: 16px;
     }
 `;
