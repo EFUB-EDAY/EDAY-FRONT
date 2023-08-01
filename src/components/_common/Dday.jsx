@@ -60,7 +60,7 @@ const Dday = props => {
             else if (dday === 6) return s6;
             else if (dday === 7) return s7;
             else if (dday === 8) return s8;
-        } else if (type === null) {
+        } else if (type === undefined) {
             if (dday === 1) return i1;
             else if (dday === 2) return i2;
             else if (dday === 3) return i3;
