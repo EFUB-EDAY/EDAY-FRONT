@@ -6,6 +6,8 @@ client.defaults.baseURL = 'https://api.ewha-day.com/';
 client.defaults.withCredentials = true;
 
 const token = localStorage.getItem('accessToken');
-client.defaults.headers.common['Authorization'] = token ? `${token}` : null;
+client.defaults.headers.common['Authorization'] = token
+    ? `Bearer ${token}`
+    : null;
 
 export default client;
