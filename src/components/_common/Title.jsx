@@ -17,7 +17,7 @@ const TitleStyle = styled.div`
     font-weight: 600;
     font-size: 16px;
     margin-top: 12px;
-    margin-bottom: 7.9px;
+    /* margin-bottom: 7.9px; */
     margin-left: 20px;
     padding-top: 12px;
     padding-bottom: 12px;

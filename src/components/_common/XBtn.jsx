@@ -10,7 +10,7 @@ const XBtn = ({ option, onClick }) => {
     let imageSrc;
 
     switch (option) {
-        // 정보 페이지
+        // 정보 페이지 정보 창
         case 'info':
             imageSrc = infobtn;
             break;
