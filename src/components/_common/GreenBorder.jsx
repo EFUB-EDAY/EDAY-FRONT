@@ -22,7 +22,6 @@ const Border = styled.div`
     position: relative;
 
     &.info {
-        width: 390px;
         border-radius: 0px;
     }
 
