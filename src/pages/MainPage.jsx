@@ -136,7 +136,7 @@ const MainPage = () => {
             </MapContainer>
             {today && (
                 <FooterContainer>
-                    <Dday num={today} />
+                    <Dday type='main' />
                     <div style={{ height: '10px' }} />
                     <Btn
                         type='deepGreen'
