@@ -20,7 +20,7 @@ const Content3 = () => {
             <GreenBorder type='info' />
             <InfoContent
                 text='운행 시간 : 오전 07:50~11:50 / 오후 13:00~21:00'
-                type='smallDot'
+                type='both'
             />
             <InfoContent
                 text={`배차 간격 : 5분
@@ -41,7 +41,7 @@ const Content3 = () => {
             <GreenBorder type='info' />
             <InfoContent
                 text='운행 시간 : 평일 21:00~23:40 / 토요일 18:00~23:40'
-                type='smallDot'
+                type='both'
             />
             <InfoContent text='배차 간격 : 10분' type='smallDot' />
             <InfoContent
@@ -62,7 +62,7 @@ const Content3 = () => {
             <GreenBorder type='info' />
             <InfoContent
                 text='운행 시간 : 오전 08:45~11:15 / 오후 13:30~17:15'
-                type='smallDot'
+                type='both'
             />
             <InfoContent text='배차 간격 : 20분' type='smallDot' />
             <InfoContent
