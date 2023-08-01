@@ -27,6 +27,7 @@ const FloatingBtn = () => {
 export default FloatingBtn;
 
 const Wrapper = styled.div`
+    z-index: 20;
     position: fixed;
     bottom: 41px;
     right: 24px;
