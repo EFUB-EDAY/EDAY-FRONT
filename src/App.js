@@ -30,7 +30,11 @@ function App() {
                         {/* 문의 페이지 */}
                         <Route exact path='/help' element={<HelpPage />} />
                         {/* 퀴즈 문제 페이지 */}
-                        <Route exact path='/quiz/:dDay' element={<QuizPage />} />
+                        <Route
+                            exact
+                            path='/quiz/:dDay'
+                            element={<QuizPage />}
+                        />
                         {/* 퀴즈 해설 페이지 */}
                         <Route
                             exact
@@ -38,7 +42,11 @@ function App() {
                             element={<AnswerPage />}
                         />
                         {/* 추가 정보 페이지 */}
-                        <Route exact path='/info/:dDay' element={<InfoPage />} />
+                        <Route
+                            exact
+                            path='/info/:dDay'
+                            element={<InfoPage />}
+                        />
                     </Route>
                 </Routes>
             </AnswerProvider>
