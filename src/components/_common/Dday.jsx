@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 const Text = styled.div`
     position: absolute;
-    top: 22px;
+    /* top: 22px; */
     font-family: 'GothamBold';
     font-size: 24px;
     letter-spacing: 2.4px;

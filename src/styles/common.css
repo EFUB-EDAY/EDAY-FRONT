@@ -184,14 +184,6 @@
     font-display: swap;
 }
 
-/* BodyBox - 추가정보 페이지의 컴포넌트 */
-.Bodybox {
-    background-color: var(--gray1);
-    width: 342px;
-}
-
-.box {
-    display: flex;
-
-    justify-content: center;
+.wrapper {
+    border: 1px solid gray;
 }

@@ -1,0 +1,38 @@
+/* InfoContent */
+
+.InfoContent {
+    /* margin-bottom: 20px; */
+    font-family: 'Pretendard-regular';
+    font-weight: 400;
+    font-size: 12px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 20px;
+    line-height: 140%;
+    /* margin-right: 14px; */
+}
+
+.InfoContent_top {
+    margin-top: 12px;
+}
+
+.InfoContent_smallDot {
+    display: flex;
+    position: relative;
+}
+
+.InfoContent_smallDot:before {
+    content: '•';
+
+    margin-right: 5px;
+}
+
+.InfoContent_both {
+    margin-top: 12px;
+    margin-right: 0px;
+}
+.InfoContent_both:before {
+    content: '•';
+
+    margin-right: 5px;
+}

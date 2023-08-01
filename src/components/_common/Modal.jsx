@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GreenBorderBox from './GreenBorderBox';
 import SmallBtn from './SmallBtn';
 
-const Modal = props => {
+const Modal = React.memo(props => {
     const {
         isModalOpen,
         closer,
@@ -60,7 +60,7 @@ const Modal = props => {
             ) : null}
         </>
     );
-};
+});
 
 export default Modal;
 

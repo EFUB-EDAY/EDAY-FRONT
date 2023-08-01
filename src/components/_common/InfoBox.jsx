@@ -4,6 +4,7 @@ import AnimateHeight from 'react-animate-height';
 
 // components
 import XBtn from './XBtn';
+import FloatingBtn from './FloatingBtn';
 
 const InfoBox = ({ btnText, content: Content }) => {
     const [boxClass, setBoxClass] = useState('btn'); // Box 컴포넌트 클래스 이름 ('btn' || 'box)
