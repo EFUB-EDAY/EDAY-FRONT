@@ -7,7 +7,7 @@ const GreenBorder = ({ text, type }) => {
     return (
         <>
             <Border className={type}>
-                <Text>{text}</Text>
+                <Text className={type}>{text}</Text>
             </Border>
         </>
     );
@@ -39,4 +39,8 @@ const Text = styled.div`
     color: var(--green2);
     position: absolute;
     bottom: 8px;
+
+    &.main {
+        font-size: 12px;
+    }
 `;
