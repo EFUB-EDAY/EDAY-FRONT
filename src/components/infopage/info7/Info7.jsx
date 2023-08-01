@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 // assets
@@ -19,12 +20,17 @@ import FloatingBtn from '../../_common/FloatingBtn';
 import { GetInfo } from '../../../api/info';
 
 const Info7 = () => {
+    const navigate = useNavigate();
+
     return (
         <Wrapper>
             <Header>
                 <Dday num='7' isGreen={false} />
                 <div className='xbtn'>
-                    <XBtn option='default' />
+                    <XBtn
+                        option='default'
+                        onClick={() => navigate('/answer/7')}
+                    />
                 </div>
             </Header>
             <Body>
