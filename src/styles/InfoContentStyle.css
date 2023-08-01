@@ -8,6 +8,7 @@
     font-size: 12px;
     padding-top: 1px;
     padding-bottom: 1px;
+    white-space: pre-line;
 }
 
 .InfoContent_top {
