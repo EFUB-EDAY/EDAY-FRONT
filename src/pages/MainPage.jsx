@@ -18,45 +18,40 @@ import { GetMember } from '../api/member';
 const MainPage = () => {
     const nav = useNavigate();
     const [info, setInfo] = useState(false);
-    const [member, setMember] = useState({});
+    const [quiz, setQuiz] = useState({});
     const [today, setToday] = useState(0);
     const [isTodayDone, setIsTodayDone] = useState(false);
-    const [openList, setOpenList] = useState([]);
-    const [doneList, setDoneList] = useState([]);
-    const [closeList, setCloseList] = useState([]);
+    const [openRow, setOpenRow] = useState([]);
+    const [doneRow, setDoneRow] = useState([]);
+    const [closeRow, setCloseRow] = useState([]);
     useEffect(() => {
         GetMember()
             .then(res => {
-                console.log(res);
-                // setMember(res.data);
-                // setToday(res.data.profile.dDay);
+                setQuiz(res.data.quiz);
+                setToday(res.data.profile.dday);
             })
             .catch(err => console.log(err));
-        setMember({
-            profile: {
-                nickname: '홍길동',
-                profileImageUrl: 'example.jpg',
-                level: 2,
-                dDay: 5,
-                titleName: '수강신청 첫날 올클한 이화인',
-            },
-            quiz: {
-                openList: [{ dDay: 7 }, { dDay: 6 }, { dDay: 5 }],
-                doneList: [{ dDay: 7 }, { dDay: 6 }],
-                closeList: [{ dDay: 4 }, { dDay: 3 }, { dDay: 2 }, { dDay: 1 }],
-            },
-        });
-        setToday(5);
-        setOpenList(
-            [{ dDay: 7 }, { dDay: 6 }, { dDay: 5 }].map(row => row.dDay),
-        );
-        setDoneList([{ dDay: 7 }, { dDay: 6 }].map(row => row.dDay));
-        setCloseList(
-            [{ dDay: 4 }, { dDay: 3 }, { dDay: 2 }, { dDay: 1 }].map(
-                row => row.dDay,
-            ),
-        );
+        // 테스트 코드
+        // setToday(5);
+        // setOpenRow(
+        //     [{ dDay: 7 }, { dDay: 6 }, { dDay: 5 }].map(row => row.dDay),
+        // );
+        // setDoneRow([{ dDay: 7 }, { dDay: 6 }].map(row => row.dDay));
+        // setCloseRow(
+        //     [{ dDay: 4 }, { dDay: 3 }, { dDay: 2 }, { dDay: 1 }].map(
+        //         row => row.dDay,
+        //     ),
+        // );
     }, []);
+    useEffect(() => {
+        if (quiz.openList) setOpenRow(quiz.openList.map(row => row.dday));
+    }, [quiz.openList]);
+    useEffect(() => {
+        if (quiz.doneList) setDoneRow(quiz.doneList.map(row => row.dday));
+    }, [quiz.doneList]);
+    useEffect(() => {
+        if (quiz.closeList) setCloseRow(quiz.closeList.map(row => row.dday));
+    }, [quiz.closeList]);
 
     // 0 - closeList (src close)
     // 1 - openList (src done)
@@ -72,24 +67,24 @@ const MainPage = () => {
     ]);
 
     useEffect(() => {
-        openList.map(item => {
+        openRow.map(item => {
             let copyDDay = [...dDayState];
             copyDDay[dDayState.findIndex(dday => dday.dDay === item)].state = 1;
             setDDayState(copyDDay);
         });
-    }, [openList]);
+    }, [openRow]);
     useEffect(() => {
-        closeList.map(item => {
+        closeRow.map(item => {
             let copyDDay = [...dDayState];
             copyDDay[dDayState.findIndex(dday => dday.dDay === item)].state = 0;
             setDDayState(copyDDay);
         });
-    }, [closeList]);
+    }, [closeRow]);
     useEffect(() => {
-        if (doneList.includes(today)) setIsTodayDone(true);
-        openList
+        if (doneRow.includes(today)) setIsTodayDone(true);
+        openRow
             .filter(item => {
-                return !doneList.includes(item);
+                return !doneRow.includes(item);
             })
             .map(item => {
                 if (!isTodayDone) {
@@ -100,7 +95,7 @@ const MainPage = () => {
                     setDDayState(copyDDay);
                 }
             });
-    }, [doneList]);
+    }, [doneRow]);
     useEffect(() => {}, [isTodayDone]);
 
     useEffect(() => {

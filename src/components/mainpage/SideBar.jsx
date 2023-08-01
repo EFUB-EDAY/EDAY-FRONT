@@ -27,24 +27,14 @@ const SideBar = props => {
     }, []);
 
     const [fadeout, setFadeout] = useState(false);
-    const [member, setMember] = useState({});
-    const [profile, setProfile] = useState('성이름');
+    const [profile, setProfile] = useState('');
     useEffect(() => {
         setFadeout(false);
         GetMember()
             .then(res => {
-                console.log(res);
-                // setMember(res.data);
-                // setProfile(res.data.profile);
+                setProfile(res.data.profile);
             })
             .catch(err => console.log(err));
-        setProfile({
-            nickname: '홍길동',
-            profileImageUrl: 'example.jpg',
-            level: 2,
-            dDay: 5,
-            titleName: '수강신청 첫날 올클한 이화인',
-        });
     }, []);
     const fadeOut = () => {
         setFadeout(true);
@@ -88,7 +78,7 @@ const SideBar = props => {
                             {dDayState && (
                                 <StampMenu
                                     dDayState={dDayState}
-                                    today={profile.dDay}
+                                    today={profile.dday}
                                 />
                             )}
                             <Footer>
