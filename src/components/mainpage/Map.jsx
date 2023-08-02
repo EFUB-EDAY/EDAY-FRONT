@@ -110,6 +110,7 @@ const Map = ({ today, isTodayDone, dDayState }) => {
                                         ? nav(`/quiz/${item.dDay}`)
                                         : nav(`/info/${item.dDay}`)
                                 }
+                                key={item.dDay}
                             />
                         );
                 })}

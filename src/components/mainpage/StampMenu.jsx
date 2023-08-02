@@ -11,7 +11,7 @@ const StampMenu = props => {
             <Title>출석도장</Title>
             <CircleWrapper>
                 {dDayState.map(item => (
-                    <CircleContainer>
+                    <CircleContainer key={item.dDay}>
                         <Dday type='sidebar' num={item.dDay} />
                         <div
                             className='circle'
