@@ -79,6 +79,9 @@ const Background = styled.div`
             opacity: 1;
         }
     }
+    @media (min-width: 576px) {
+        width: 390px;
+    }
 `;
 const ModalBlock = styled.div`
     position: relative;
@@ -93,6 +96,9 @@ const ModalBlock = styled.div`
         to {
             opacity: 1;
         }
+    }
+    @media (min-width: 576px) {
+        width: calc(390px - 48px);
     }
     img {
         width: 100%;
