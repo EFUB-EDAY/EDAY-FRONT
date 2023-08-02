@@ -5,8 +5,8 @@ import Info1 from '../components/infopage/Info1';
 import Info2 from '../components/infopage/Info2';
 import Info3 from '../components/infopage/info3/Info3';
 import Info4 from '../components/infopage/info4/Info4';
-import Info5 from '../components/infopage/Info5';
-import Info6 from '../components/infopage/Info6';
+import Info5 from '../components/infopage/info5/Info5';
+import Info6 from '../components/infopage/info6/Info6';
 import Info7 from '../components/infopage/info7/Info7';
 
 const InfoPage = () => {
