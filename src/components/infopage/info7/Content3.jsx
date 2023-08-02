@@ -20,7 +20,7 @@ const Content3 = () => {
             <GreenBorder type='info' />
             <InfoContent
                 text='운행 시간 : 오전 07:50~11:50 / 오후 13:00~21:00'
-                type='smallDot'
+                type='both'
             />
             <InfoContent
                 text={`배차 간격 : 5분
@@ -41,7 +41,7 @@ const Content3 = () => {
             <GreenBorder type='info' />
             <InfoContent
                 text='운행 시간 : 평일 21:00~23:40 / 토요일 18:00~23:40'
-                type='smallDot'
+                type='both'
             />
             <InfoContent text='배차 간격 : 10분' type='smallDot' />
             <InfoContent
@@ -54,7 +54,9 @@ const Content3 = () => {
                 기숙사 안까지 버스가 들어가요.`}
             />
             <MapContainer margin='8px'>
-                <MapImg src={map1} />
+                <object type='image/svg+xml' data={map1}>
+                    <MapImg src={map1} />
+                </object>
                 <MapImg className='point' src={point1} />
             </MapContainer>
 
@@ -62,7 +64,7 @@ const Content3 = () => {
             <GreenBorder type='info' />
             <InfoContent
                 text='운행 시간 : 오전 08:45~11:15 / 오후 13:30~17:15'
-                type='smallDot'
+                type='both'
             />
             <InfoContent text='배차 간격 : 20분' type='smallDot' />
             <InfoContent
@@ -70,7 +72,9 @@ const Content3 = () => {
                 type='smallDot'
             />
             <MapContainer margin='20px'>
-                <MapImg src={map2} />
+                <object type='image/svg+xml' data={map2}>
+                    <MapImg src={map2} />
+                </object>
                 <MapImg className='point' src={point2} />
             </MapContainer>
 
@@ -102,8 +106,7 @@ const MapImg = styled.img`
     z-index: 1;
     align-self: center;
 
-    width: '336px';
-    height: '396px';
+    width: calc(100% - 6px);
 
     &.point {
         position: absolute;

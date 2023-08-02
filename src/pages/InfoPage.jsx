@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import Info1 from '../components/infopage/Info1';
-import Info2 from '../components/infopage/Info2';
+import Info1 from '../components/infopage/info1/Info1';
+import Info2 from '../components/infopage/info2/Info2';
 import Info3 from '../components/infopage/info3/Info3';
 import Info4 from '../components/infopage/info4/Info4';
 import Info5 from '../components/infopage/info5/Info5';
