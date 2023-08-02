@@ -64,6 +64,7 @@ const Info3Content_2 = () => {
                     closer={() => closer(0)}
                     img={momo}
                     isImgOpened={isImgOpened[0]}
+                    color='white'
                 />
             </Text_Img>
             <InfoContent
@@ -121,6 +122,7 @@ const Info3Content_2 = () => {
                     closer={() => closer(3)}
                     img={tomorrow}
                     isImgOpened={isImgOpened[3]}
+                    color='white'
                 />
             </Text_Img>
             <InfoContent
@@ -140,6 +142,7 @@ const Info3Content_2 = () => {
                     closer={() => closer(4)}
                     img={ecc_shinhan}
                     isImgOpened={isImgOpened[4]}
+                    color='white'
                 />
             </Text_Img>
             <InfoContent
@@ -163,6 +166,7 @@ const Info3Content_2 = () => {
                     closer={() => closer(5)}
                     img={ecc_shinhan}
                     isImgOpened={isImgOpened[5]}
+                    color='white'
                 />
             </Text_Img>
             <InfoContent text={'자유 열람실에서 열심히 공부해보아요.'} />
@@ -290,6 +294,7 @@ const Info3Content_2 = () => {
                     closer={() => closer(11)}
                     img={psc}
                     isImgOpened={isImgOpened[11]}
+                    color='white'
                 />
             </Text_Img>
             <InfoContent text={'밀린 과제 및 공부를 할 수 있어요.'} />
@@ -329,6 +334,7 @@ const Info3Content_2 = () => {
                     closer={() => closer(13)}
                     img={ac_lounge}
                     isImgOpened={isImgOpened[13]}
+                    color='white'
                 />
             </Text_Img>
             <InfoContent

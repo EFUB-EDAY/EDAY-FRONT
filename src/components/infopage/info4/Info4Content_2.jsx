@@ -193,6 +193,7 @@ const Info4Content_2 = () => {
                         closer={handleClose}
                         img={englishlounge}
                         isImgOpened={isImgOpened}
+                        color='white'
                     />
                 </ImgWrapper>
             </Overlay>
