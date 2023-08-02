@@ -16,7 +16,7 @@ const Info1 = () => {
         <>
             <Wrapper>
                 <Header>
-                    <Dday />
+                    <Dday num={1} />
                     <div className='xbtn'>
                         <XBtn
                             option='default'
