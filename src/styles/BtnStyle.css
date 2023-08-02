@@ -1,0 +1,38 @@
+/* 공용버튼 */
+.Btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 30px 11px 30px;
+    font-size: 20px;
+    white-space: nowrap;
+    font-family: 'NanumBarunpen';
+    gap: 12px;
+}
+.Btn {
+    /* 화면 너비가 576px 이상일 때 */
+    padding: 11px calc(30px + (100vw - 576px) / 10);
+}
+
+/* 최대 패딩 값을 설정 */
+.Btn {
+    /* 화면 너비가 1200px 이상이면 최대 패딩 값으로 고정 */
+    @media (min-width: 1200px) {
+        padding: 11px 90px; /* 최대 패딩 값으로 설정 */
+    }
+}
+
+.Btn_default {
+    background-color: var(--gray1);
+    color: black;
+}
+
+.Btn_deepGreen {
+    background-color: var(--green3);
+    color: white;
+}
+
+.Btn_lightGreen {
+    background-color: #eaf3e7;
+    color: var(--green3);
+}
