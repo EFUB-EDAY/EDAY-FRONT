@@ -57,24 +57,26 @@ const Option = ({ num }) => {
     return (
         <>
             <Wrapper>
-                <OptionBox
-                    onClick={() => handleOptionClick(1)}
-                    isselected={selectedOption === 1}
-                >
-                    {getOptionContent(1)}
-                </OptionBox>
-                <OptionBox
-                    onClick={() => handleOptionClick(2)}
-                    isselected={selectedOption === 2}
-                >
-                    {getOptionContent(2)}
-                </OptionBox>
-                <OptionBox
-                    onClick={() => handleOptionClick(3)}
-                    isselected={selectedOption === 3}
-                >
-                    {getOptionContent(3)}
-                </OptionBox>
+                <OptionBoxWrapper>
+                    <OptionBox
+                        onClick={() => handleOptionClick(1)}
+                        isselected={selectedOption === 1}
+                    >
+                        {getOptionContent(1)}
+                    </OptionBox>
+                    <OptionBox
+                        onClick={() => handleOptionClick(2)}
+                        isselected={selectedOption === 2}
+                    >
+                        {getOptionContent(2)}
+                    </OptionBox>
+                    <OptionBox
+                        onClick={() => handleOptionClick(3)}
+                        isselected={selectedOption === 3}
+                    >
+                        {getOptionContent(3)}
+                    </OptionBox>
+                </OptionBoxWrapper>
             </Wrapper>
         </>
     );
@@ -87,7 +89,12 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     margin-top: 78px;
+`;
+
+const OptionBoxWrapper = styled.div`
+    width: calc(100% - 48px);
 `;
 
 const OptionBox = styled.div`
@@ -98,15 +105,15 @@ const OptionBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin-bottom: 20px;
     border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 100ms ease-in;
-
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     color: ${props => (props.isselected ? 'var(--white)' : 'var(--black)')};
+    cursor: pointer;
+    transition: background-color 100ms ease-in;
 
     &.last {
         margin-bottom: 0;

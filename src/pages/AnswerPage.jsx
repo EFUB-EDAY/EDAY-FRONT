@@ -12,11 +12,11 @@ const AnswerPage = () => {
     const { quizDescription } = useContext(AnswerContext);
     const { answerContent } = useContext(AnswerContext);
 
-    //퀴즈 줄 개수(dDay)에 따라 정답 버튼과 퀴즈 사이의 간격 &
-    //설명 박스와 '추가정보 보러가기'버튼 사이의 간격 다르게 하기
+    // 퀴즈 줄 개수(dDay)에 따라 정답 버튼과 퀴즈 사이의 간격 &
+    // 설명 박스와 '추가정보 보러가기'버튼 사이의 간격 다르게 하기
     let answerMargin;
     let btnMargin;
-    //'정답확인'(14px)과  정답 버튼을 감싼 wrapper를 기준으로 한 margin-top &
+    // '정답확인'(14px)과  정답 버튼을 감싼 wrapper를 기준으로 한 margin-top &
     // '추가정보 보러가기'버튼 과 설명 박스를 기준으로 한 margin-top
     switch (dDay) {
         case '1': //한줄 일 때
@@ -38,19 +38,28 @@ const AnswerPage = () => {
     }
 
     return (
-        <>
+        <Wrapper>
             <Header num={dDay} />
             <AnswerWrapper style={{ marginTop: answerMargin }}>
                 <CheckAnswer>정답확인 :</CheckAnswer>
-                <Answer>초록{answerContent}</Answer>
+                <Answer>{answerContent}</Answer>
+                {/* <Answer>초록</Answer> */}
+                <AnswerInfo>
+                    {quizDescription}
+                    {dDay === '1' && (
+                        <EwhaGreen>
+                            <img src={ewhaGreen} alt='이화 그린' />
+                        </EwhaGreen>
+                    )}
+                </AnswerInfo>
+                {/* <AnswerInfo>
+            무인복합기는 모든 건물에 있지만 흑백은 약
+            50원, 컬러는 약 300~400원 정도의 가격을 지불해야 해요. 용지만
+            들고 간다면 무료로 인쇄가 가능한 곳은 학생문화관 최대 네줄
+            우하하학
+            {dDay === '1' && <img src={ewhaGreen} alt='이화 그린' />}
+        </AnswerInfo> */}
             </AnswerWrapper>
-            <AnswerInfo>
-                {quizDescription} 무인복합기는 모든 건물에 있지만 흑백은 약
-                50원, 컬러는 약 300~400원 정도의 가격을 지불해야 해요. 용지만
-                들고 간다면 무료로 인쇄가 가능한 곳은 학생문화관 최대 네줄
-                우하하학
-                {dDay === '1' && <img src={ewhaGreen} alt='이화 그린' />}
-            </AnswerInfo>
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 <TopBtn>
                     <Btn
@@ -68,13 +77,22 @@ const AnswerPage = () => {
                     }}
                 />
             </BtnWrapper>
-        </>
+        </Wrapper>
     );
 };
 
 export default AnswerPage;
 
-const AnswerWrapper = styled.div``;
+const Wrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const AnswerWrapper = styled.div`
+    width: calc(100% - 48px);
+`;
 
 const Answer = styled.div`
     background-color: var(--green2);
@@ -88,7 +106,7 @@ const Answer = styled.div`
     border-radius: 4px;
 
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     color: var(--white);
 `;
@@ -123,8 +141,15 @@ const BtnWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-bottom: 66px;
 `;
 
 const TopBtn = styled.div`
+    width: (100% - 222px);
     margin-bottom: 16px;
+`;
+
+const EwhaGreen = styled.div`
+    margin-top: 20px;
 `;
