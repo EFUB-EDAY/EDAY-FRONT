@@ -14,10 +14,10 @@ const Content1 = () => {
         <Wrapper>
             <Title num='1.' title='건물 약어' />
             <GreenBorder type='info' />
-            <TableImg src={table1} width='308px' height='545px' />
+            <TableImg src={table1} width='calc(100% - 34px)' />
             <Title num='2.' title='건물 간 소요 시간' />
             <GreenBorder type='info' />
-            <TableImg src={table2} width='308px' height='434px' />
+            <TableImg src={table2} width='calc(100% - 34px)' />
         </Wrapper>
     );
 };
@@ -35,7 +35,6 @@ const TableImg = styled.img`
     align-self: center;
 
     width: ${props => props.width};
-    height: ${props => props.height};
     margin-top: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 `;

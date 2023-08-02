@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Dday from '../_common/Dday';
 import stamp from '../../assets/mainpage/stamp.svg';
 import lock from '../../assets/mainpage/lock.svg';
 
@@ -10,8 +11,8 @@ const StampMenu = props => {
             <Title>출석도장</Title>
             <CircleWrapper>
                 {dDayState.map(item => (
-                    <CircleContainer>
-                        <Text>{`D-${item.dDay}`}</Text>
+                    <CircleContainer key={item.dDay}>
+                        <Dday type='sidebar' num={item.dDay} />
                         <div
                             className='circle'
                             style={{
@@ -32,7 +33,7 @@ const StampMenu = props => {
                     </CircleContainer>
                 ))}
                 <CircleContainer>
-                    <Text style={{ marginTop: '10px' }}>D-Day!</Text>
+                    <Dday type='sidebar' num={8} />
                 </CircleContainer>
             </CircleWrapper>
         </Container>
@@ -73,12 +74,4 @@ const CircleContainer = styled.div`
         justify-content: center;
         align-items: center;
     }
-`;
-const Text = styled.div`
-    width: calc(248px / 4);
-    color: var(--white);
-    text-align: center;
-    font-family: 'GothamBold';
-    font-size: 12px;
-    font-weight: 700;
 `;
