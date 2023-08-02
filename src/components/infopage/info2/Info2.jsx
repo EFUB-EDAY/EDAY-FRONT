@@ -31,7 +31,8 @@ const Info2 = () => {
                     </div>
                     <MapImg src={map} />
                     <InfoBoxWrapper>
-                        <InfoBox btnText='이화 소식' content={<Content1 />} />
+                        <InfoBox btnText='채플' content={<Content1 />} />
+                        <InfoBox btnText='필수 교양' content={<Content2 />} />
                     </InfoBoxWrapper>
                 </Body>
                 <FloatingBtn />
