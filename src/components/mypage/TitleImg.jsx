@@ -27,7 +27,7 @@ const Img = React.memo(
                             <ModalBlock>
                                 <img src={bigimg} />
                                 <OverlayBtn>
-                                    <XBtn option={'sidebar'} onClick={closer} />
+                                    {/* <XBtn option={'sidebar'} onClick={closer} /> */}
                                 </OverlayBtn>
                             </ModalBlock>
                         </Img_Btn>
