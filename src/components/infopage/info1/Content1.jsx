@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import '../../../styles/InfoContentStyle.css';
 import ewhalogo from '../../../assets/infopage/d1/ewhalogo.png';
 import slogan from '../../../assets/infopage/d1/slogan.png';
 import cookie from '../../../assets/infopage/d1/cookie.png';
@@ -57,10 +58,14 @@ const Content1 = () => {
                 type='top'
                 link='http://www.ewha.ac.kr/ewha_vr'
             />
-            <InfoContent
-                text={`학교 캠퍼스에 아직 가보지 못했는데 너무 궁금하다면 이 링크를 통해 VR 투어를 떠나보는 건 어떤가요?
-                학교의 구석구석을 실제 모습 그대로 체험해 볼 수 있답니다!`}
-            />
+            <div className='InfoContent' style={{ marginRight: '20px' }}>
+                학교 캠퍼스에 아직 가보지 못했는데 너무 궁금하다면 이 링크를
+                통해 VR 투어를 떠나보는 건 어떤가요?
+            </div>
+            <div className='InfoContent' style={{ marginRight: '20px' }}>
+                학교의 구석구석을 실제 모습 그대로 체험해 볼 수 있답니다!
+            </div>
+            <br />
             <InfoContent
                 text={`이화여자대학교는 하버드 대학교의 파트너십 대학으로, 하버드 대학 본교와 교류하는 국내 유일의 대학이랍니다.`}
                 type='smallDot'
