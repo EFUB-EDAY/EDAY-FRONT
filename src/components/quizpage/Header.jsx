@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
+// components
 import XBtn from '../_common/XBtn';
 import Dday from '../_common/Dday';
 import GreenBorder from '../_common/GreenBorder';
 import GreenBorderBox from '../_common/GreenBorderBox';
 
+// api
 import { GetQuiz } from '../../api/quiz';
 
 const Header = ({ num }) => {
@@ -27,37 +30,53 @@ const Header = ({ num }) => {
     }, []);
 
     return (
-        <>
+        <Wrapper>
             <Top>
                 <Dday num={dDay} />
                 <XBtnContainer>
                     <XBtn onClick={() => navigate(-1)} />
                 </XBtnContainer>
             </Top>
-            <GreenBorder text='이화 소식' />
-            {/* <GreenBorder text={borderText.topic} /> */}
+            <BorderWrapper>
+                {/* <GreenBorder text='이화 소식' /> */}
+                <GreenBorder text={borderText.topic} />
+            </BorderWrapper>
             <BoxWrapper>
-                <GreenBorderBox>
-                    {question.quizContent}이화여대 공식 색상은 __이다.
-                </GreenBorderBox>
+                <GreenBorderBox>{question.quizContent}</GreenBorderBox>
+                {/* <GreenBorderBox>
+               이화여대 공식 색상은 __이다.
+                </GreenBorderBox> */}
             </BoxWrapper>
-        </>
+        </Wrapper>
     );
 };
 
 export default Header;
 
-const Top = styled.div`
-    margin-bottom: 79px;
-    position: relative;
+const Wrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
+const Top = styled.div`
+    width: calc(100% - 48px);
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 59px;
+    margin-bottom: 57px;
+`;
+
+const BorderWrapper = styled.div`
+    width: calc(100% - 48px);
+`;
 const BoxWrapper = styled.div`
+    width: calc(100% - 48px);
     margin-top: 76px;
 `;
 
 const XBtnContainer = styled.div`
-    position: absolute;
-    right: 0;
-    top: 22px;
+    width: (100% - 238px);
 `;

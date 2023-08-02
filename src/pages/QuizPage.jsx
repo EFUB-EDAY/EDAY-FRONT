@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
+// components
 import Header from '../components/quizpage/Header';
 import Option from '../components/quizpage/Option';
 import OptionTemp from '../components/quizpage/OptionTemp';
 import Btn from '../components/_common/Btn';
-
 import { AnswerContext } from '../components/answerpage/AnswerProvider';
 
 const QuizPage = () => {
@@ -46,9 +47,9 @@ const QuizPage = () => {
     }
 
     return (
-        <>
+        <Wrapper>
             <Header num={dDay} />
-            <OptionTemp num={dDay} />
+            <Option num={dDay} />
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 {isCorrect ? <Retry /> : <Retry>다시 생각해보세요!</Retry>}
                 <Btn
@@ -57,17 +58,19 @@ const QuizPage = () => {
                     onClick={handleCheckAnswer}
                 />
             </BtnWrapper>
-        </>
+        </Wrapper>
     );
 };
 
 export default QuizPage;
-
+const Wrapper = styled.div``;
 const BtnWrapper = styled.div`
     height: 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-bottom: 130px;
 `;
 
 const Retry = styled.div`

@@ -13,24 +13,28 @@ const OptionTemp = ({ num }) => {
     return (
         <>
             <Wrapper>
-                <OptionBox
-                    onClick={() => handleOptionClick(1)}
-                    isselected={isSelected === 1}
-                >
-                    ecc
-                </OptionBox>
-                <OptionBox
-                    onClick={() => handleOptionClick(2)}
-                    isselected={isSelected === 2}
-                >
-                    학문관
-                </OptionBox>
-                <OptionBox
-                    onClick={() => handleOptionClick(3)}
-                    isselected={isSelected === 3}
-                >
-                    종과
-                </OptionBox>
+                <OptionBoxWrapper>
+                    <OptionBox
+                        onClick={() => handleOptionClick(1)}
+                        isselected={isSelected === 1}
+                    >
+                        ecc
+                    </OptionBox>
+
+                    <OptionBox
+                        onClick={() => handleOptionClick(2)}
+                        isselected={isSelected === 2}
+                    >
+                        학문관
+                    </OptionBox>
+
+                    <OptionBox
+                        onClick={() => handleOptionClick(3)}
+                        isselected={isSelected === 3}
+                    >
+                        종과
+                    </OptionBox>
+                </OptionBoxWrapper>
             </Wrapper>
         </>
     );
@@ -43,7 +47,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     margin-top: 78px;
+`;
+const OptionBoxWrapper = styled.div`
+    width: calc(100% - 48px);
 `;
 
 const OptionBox = styled.div`
@@ -60,7 +68,7 @@ const OptionBox = styled.div`
     transition: background-color 100ms ease-in;
 
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     color: ${props => (props.isselected ? 'var(--white)' : 'var(--black)')};
 

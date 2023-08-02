@@ -31,7 +31,7 @@ const Dday = props => {
     // 2. sidebar (12px white)
     // 3. 전달 생략시 quiz/info (24px lessblack)
     // num
-    // 사이드바에서 사용, 생략시 get member api를 통해 가져온 dday 출력
+    // 숫자를 지정, 생략시 get member api를 통해 가져온 dday 출력
 
     const [today, setToday] = useState(0);
     useEffect(() => {
@@ -75,7 +75,7 @@ const Dday = props => {
         <>
             {type !== 'sidebar' ? (
                 <Container1>
-                    <img src={getSrc(type, today)} />
+                    <img src={getSrc(type, num ? Number(num) : today)} />
                 </Container1>
             ) : (
                 <Container2 style={{ marginTop: num === 8 ? '20px' : '0' }}>
