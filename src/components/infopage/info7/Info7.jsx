@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -48,7 +48,7 @@ const Info7 = () => {
                 <Btn
                     text='메인페이지로 돌아가기'
                     type='deepGreen'
-                    onClick={() => nav('/')}
+                    onClick={() => navigate('/')}
                 />
             </Footer>
             <FloatingBtn />
