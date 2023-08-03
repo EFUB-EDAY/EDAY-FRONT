@@ -10,6 +10,7 @@ import Info4Content_1 from './Info4Content_1';
 import Info4Content_2 from './Info4Content_2';
 import Btn from '../../_common/Btn';
 import { useNavigate } from 'react-router-dom';
+import FloatingBtn from '../../_common/FloatingBtn';
 
 //img
 import D_4 from '../../../assets/infopage/info4/D_4.svg';
@@ -21,20 +22,26 @@ const Info4 = () => {
         navigate(`/`);
     };
 
+    const goQuiz = () => {
+        navigate('/answer/4');
+    };
+
     return (
         <>
             <Wrapper>
                 <Head>
                     <Dday num={'4'} />
 
-                    <XBtn />
+                    <XBtn onClick={goQuiz}/>
                 </Head>
+                <InfoTitle>
                 <GreenBorder text={'학생 지원'} />
+                </InfoTitle>
                 <img
                     src={D_4}
                     style={{
                         marginTop: '40px',
-                        marginLeft: '66px',
+                       
                         marginBottom: '40px',
                     }}
                 />
@@ -43,7 +50,8 @@ const Info4 = () => {
                     content={<Info4Content_1 />}
                 />
                 <InfoBox btnText={'기타 서비스'} content={<Info4Content_2 />} />
-
+                <FloatingBtn />
+            </Wrapper>
                 <BtnStyle>
                     <Btn
                         text={'메인페이지로 돌아가기'}
@@ -51,7 +59,7 @@ const Info4 = () => {
                         onClick={goMain}
                     />
                 </BtnStyle>
-            </Wrapper>
+              
         </>
     );
 };
@@ -59,19 +67,31 @@ const Info4 = () => {
 export default Info4;
 
 const Wrapper = styled.div`
-    margin-top: 12px;
-    margin-right: 24px;
-    margin-left: 24px;
+ position: relative;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 110px);
 `;
 
 const Head = styled.div`
+    width: calc(100% - 48px);
+    margin-top: 12px;
+    //margin-bottom: 27px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 55px;
+
 `;
 
 const BtnStyle = styled.div`
     text-align: center;
-    margin-bottom: 22px;
-    margin-top: 186.98px;
+   // margin-bottom:34px;
+    height: 110px;
+    transform: translatY(-100%);
 `;
+
+const InfoTitle = styled.div`
+    width: calc(100% - 48px);
+    margin-top:54px;
+`

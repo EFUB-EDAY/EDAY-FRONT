@@ -1,6 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import {help} from '../api/query'
+import { GetMember } from '../api/member';
+
 import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
 import { hover } from '@testing-library/user-event/dist/hover';
@@ -9,71 +13,122 @@ import Modal from '../components/_common/Modal';
 
 const HelpPage = () => {
     //옵션 선택
-    const [selecedVal, setSelectedVal] = useState('');
+  //  const [selecedVal, setSelectedVal] = useState('');
 
-    const handleSelect = e => {
-        setSelectedVal(e.target.value);
-    };
-
+   
     // 모달 버튼 클릭 유무를 저장할 state
     const [showModal, setShowModal] = useState(false);
 
     const opener = () => setShowModal(true);
-    const closer = () => setShowModal(false);
+    const closer = () => {
+        setShowModal(false); 
+        setQuery('');
+        setPostDday('');
+    };
 
-    //제출하기 버튼 눌렀을 시
-    const handleSubmit = () => opener();
-    //모달창의 닫기 버튼 눌렀을 시
-    const clickBtn = () => setShowModal(!showModal);
-    console.log(showModal);
+    //제출하기 버튼 눌렀을 시(post)
+    const [query, setQuery] = useState('')
+    const [postdDay, setPostDday] = useState('')
 
-    // const handleOptionMouseOver = e => {
-    //     e.target.style.backgroundColor = 'lightgreen'; // 마우스 오버 시 배경색을 초록색으로 변경
-    // };
+    useEffect(() => {
+        console.log(postdDay); // 변경된 postdDay 값을 찍어냄
+      }, [postdDay]);
 
-    // const handleOptionMouseOut = e => {
-    //     e.target.style.backgroundColor = ''; // 마우스 아웃 시 배경색을 초기값으로 변경 (비워둠)
-    // };
 
+    //옵션 선택 함수
+    const handleSelect = e => {
+        
+        setPostDday(e.target.value);
+        //console.log(postdDay)
+    };
+
+    //제출하기 버튼 
+    const handleSubmit = async(e) =>{
+        opener()
+        e.preventDefault();
+        const res = await help(profile, query, postdDay);
+        console.log(res);  
+    } 
+
+    //유저 아이디 get
+    const [profile, setProfile] = useState('');
+    useEffect(() => {
+        
+        GetMember()
+            .then(res => {
+                setProfile(res.data.profile.nickname);
+                console.log(profile)
+            })
+            .catch(err => console.log(err));
+    }, []);
+
+    
+
+
+
+    const modalText = ()=>{
+        return<>
+        <p>
+        제출되었습니다. 
+        </p>
+        <p>
+        소중한 정보 감사합니다!
+        </p>
+        </>
+    }
+
+    const navigate = useNavigate();
+
+    const goMain = () => {
+        navigate(`/`);
+    };
     return (
         <>
             <Wrapper>
                 <Head>
                     <Title>정보수정 문의하기</Title>
-                    <XBtn />
+                    <XBtn onClick={goMain}/>
                 </Head>
                 <GreenBorder />
-                <SelectOption vlaue={selecedVal} onChange={handleSelect}>
+                <SelectOption value={postdDay} onChange={handleSelect}>
                     <Option value='' selected disabled hidden>
                         어느 구역의 정보 수정이 필요한가요?
                     </Option>
-                    <Option value='option1'>
+                    <Option value='option7'>
                         건물위치 & 이동경로 & 소요시간 & 셔틀
                     </Option>
-                    <Option value='option2'>채플 및 필수교양</Option>
-                    <Option value='option3'>학생지원</Option>
+                    <Option value='option6'>채플 및 필수교양</Option>
+                    <Option value='option5'>학생지원</Option>
                     <Option value='option4'>학교 내 편의시설 (서비스)</Option>
-                    <Option value='option5'>
+                    <Option value='option3'>
                         교과과정 확인 & 시간표 & 수강신청
                     </Option>
-                    <Option value='option6'>공강을 보내기 좋은 장소</Option>
-                    <Option value='option7'>이화 소식</Option>
+                    <Option value='option2'>공강을 보내기 좋은 장소</Option>
+                    <Option value='option1'>이화 소식</Option>
                 </SelectOption>
-                <Textarea placeholder='잘못된 정보가 있다면 알려주세요.' />
+
+                <form onSubmit={handleSubmit}>
+                <Textarea placeholder='잘못된 정보가 있다면 알려주세요.'  
+                value={query}  onChange={(e) => setQuery(e.target.value)}/>
+                
                 <BtnStyle>
+               
                     <Btn
                         text={'제출하기'}
                         type={'deepGreen'}
                         onClick={handleSubmit}
                     />
+                    
                 </BtnStyle>
+                </form>
+
                 {showModal ? (
                     <Modal
                         isModalOpen={showModal}
                         closer={closer}
                         btn={'1'}
                         btntext1={'확인'}
-                        maintext={'제출되었습니다. 소중한 정보 감사합니다!'}
+                        maintext={modalText()}
                         onClick1={closer}
                     />
                 ) : null}

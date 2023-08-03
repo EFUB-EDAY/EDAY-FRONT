@@ -8,6 +8,9 @@
     font-size: 12px;
     padding-top: 1px;
     padding-bottom: 1px;
+    margin-left: 20px;
+    line-height: 150%;
+    /* margin-right: 14px; */
     white-space: pre-line;
 }
 
@@ -22,6 +25,5 @@
 
 .InfoContent_smallDot:before {
     content: '•';
-
     margin-right: 5px;
 }

@@ -13,8 +13,8 @@ export default Title;
 
 const TitleStyle = styled.div`
     display: flex;
-    font-family: 'Pretendard-regular';
-    font-weight: 600;
+   
+    font-weight: 700;
     font-size: 16px;
     margin-top: 12px;
     /* margin-bottom: 7.9px; */
@@ -26,4 +26,5 @@ const TitleStyle = styled.div`
 
 const Title_p = styled.p`
     margin-right: 7px;
+     font-family: 'Pretendard-regular';
 `;
