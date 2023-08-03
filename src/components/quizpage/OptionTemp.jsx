@@ -65,7 +65,7 @@ const OptionBox = styled.div`
     margin-bottom: 20px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 100ms ease-in;
+    transition: background-color 150ms ease-in;
 
     font-size: 16px;
     font-weight: 500;
