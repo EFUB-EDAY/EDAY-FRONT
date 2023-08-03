@@ -1,17 +1,20 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
+// components
 import Header from '../components/quizpage/Header';
 import Option from '../components/quizpage/Option';
 import OptionTemp from '../components/quizpage/OptionTemp';
 import Btn from '../components/_common/Btn';
-
 import { AnswerContext } from '../components/answerpage/AnswerProvider';
+import TitleModal from '../components/quizpage/TitleModal';
 
 const QuizPage = () => {
     const { dDay } = useParams();
     const navigate = useNavigate();
     const [isCorrect, setIsCorrect] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { isAnswer } = useContext(AnswerContext);
 
     const handleCheckAnswer = () => {
@@ -19,7 +22,11 @@ const QuizPage = () => {
 
         if (isAnswer) {
             //modal+confetti 띄우기
-            navigate(`/answer/${dDay}`);
+            setIsModalOpen(true);
+            setTimeout(() => {
+                setIsModalOpen(false);
+                navigate(`/answer/${dDay}`);
+            }, 6000);
         }
     };
 
@@ -30,14 +37,14 @@ const QuizPage = () => {
         case '1': //한 줄 일때
             btnMargin = '103px';
             break;
-        case '2': //두 줄 일때
-        case '3':
+        case '3': //두 줄 일때
         case '4':
         case '5':
         case '6':
             btnMargin = '78px';
             break;
         case '7': //세 줄 일때
+        case '2':
             btnMargin = '53px';
             break;
         default:
@@ -46,28 +53,37 @@ const QuizPage = () => {
     }
 
     return (
-        <>
+        <Wrapper>
             <Header num={dDay} />
-            <OptionTemp num={dDay} />
+            <Option num={dDay} />
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 {isCorrect ? <Retry /> : <Retry>다시 생각해보세요!</Retry>}
+                {isModalOpen && <TitleModal />}
                 <Btn
                     type='deepGreen'
                     text='정답 확인하기'
                     onClick={handleCheckAnswer}
                 />
             </BtnWrapper>
-        </>
+        </Wrapper>
     );
 };
 
 export default QuizPage;
+
+const Wrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`;
 
 const BtnWrapper = styled.div`
     height: 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-bottom: 130px;
 `;
 
 const Retry = styled.div`
@@ -81,4 +97,22 @@ const Retry = styled.div`
     font-size: 12px;
     font-weight: 500;
     color: var(--pink);
+    animation: shake 1s infinite;
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-3px);
+        }
+        50% {
+            transform: translateX(3px);
+        }
+        75% {
+            transform: translateX(-3px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
 `;

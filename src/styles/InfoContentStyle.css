@@ -1,6 +1,7 @@
 /* InfoContent */
-
 .InfoContent {
+    margin-left: 20px;
+    margin-right: 14px;
     /* margin-bottom: 20px; */
     font-family: 'Pretendard-regular';
     font-weight: 400;
@@ -8,8 +9,9 @@
     padding-top: 1px;
     padding-bottom: 1px;
     margin-left: 20px;
-    line-height: 140%;
+    line-height: 150%;
     /* margin-right: 14px; */
+    white-space: pre-line;
 }
 
 .InfoContent_top {
@@ -22,16 +24,6 @@
 }
 
 .InfoContent_smallDot:before {
-    content: '•';
-
-    margin-right: 5px;
-}
-
-.InfoContent_both {
-    margin-top: 12px;
-    margin-right: 0px;
-}
-.InfoContent_both:before {
     content: '•';
     margin-right: 5px;
 }
