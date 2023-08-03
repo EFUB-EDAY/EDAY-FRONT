@@ -37,7 +37,6 @@ const Content2 = () => {
         setImgOpen(prevState => {
             const newState = [...prevState];
             newState[index] = value;
-            console.log(imgOpen);
             return newState;
         });
     };
