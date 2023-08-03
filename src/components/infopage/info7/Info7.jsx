@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -16,16 +16,13 @@ import Content3 from './Content3';
 import Btn from '../../_common/Btn';
 import FloatingBtn from '../../_common/FloatingBtn';
 
-// api
-import { GetInfo } from '../../../api/info';
-
 const Info7 = () => {
     const navigate = useNavigate();
 
     return (
         <Wrapper>
             <Header>
-                <Dday num='7' isGreen={false} />
+                <Dday num={7} />
                 <div className='xbtn'>
                     <XBtn
                         option='default'
@@ -48,7 +45,11 @@ const Info7 = () => {
                 </InfoBoxWrapper>
             </Body>
             <Footer>
-                <Btn text='메인페이지로 돌아가기' type='deepGreen' />
+                <Btn
+                    text='메인페이지로 돌아가기'
+                    type='deepGreen'
+                    onClick={() => navigate('/')}
+                />
             </Footer>
             <FloatingBtn />
         </Wrapper>
