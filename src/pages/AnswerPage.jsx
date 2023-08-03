@@ -16,11 +16,9 @@ const AnswerPage = () => {
     // 설명 박스와 '추가정보 보러가기'버튼 사이의 간격 다르게 하기
     let answerMargin;
     let btnMargin;
-    // '정답확인'(14px)과  정답 버튼을 감싼 wrapper를 기준으로 한 margin-top &
-    // '추가정보 보러가기'버튼 과 설명 박스를 기준으로 한 margin-top
     switch (dDay) {
         case '1': //한줄 일 때
-            answerMargin = '92px';
+            answerMargin = '54px';
             btnMargin = '52px';
             break;
         case '2': //두줄 일 때
@@ -28,11 +26,11 @@ const AnswerPage = () => {
         case '4':
         case '5':
         case '6':
-            answerMargin = '116px';
+            answerMargin = '78px';
             btnMargin = '51px';
             break;
         case '7': //세줄 일 때
-            answerMargin = '115px';
+            answerMargin = '77px';
             btnMargin = '26px';
             break;
     }
@@ -112,8 +110,10 @@ const Answer = styled.div`
 `;
 
 const CheckAnswer = styled.div`
+    color: #000000;
     font-size: 12px;
-    font-weight: 500;
+    line-height: 16px;
+    font-weight: 400;
 `;
 
 const AnswerInfo = styled.div`
@@ -127,8 +127,8 @@ const AnswerInfo = styled.div`
 
     color: var(--black);
     font-size: 16px;
-    line-height: 150%;
-    font-weight: 600;
+    line-height: 22px;
+    font-weight: 500;
     text-align: justify;
 
     & > img {

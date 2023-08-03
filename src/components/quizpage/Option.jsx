@@ -71,6 +71,7 @@ const Option = ({ num }) => {
                         {getOptionContent(2)}
                     </OptionBox>
                     <OptionBox
+                        className='last'
                         onClick={() => handleOptionClick(3)}
                         isselected={selectedOption === 3}
                     >
@@ -113,7 +114,7 @@ const OptionBox = styled.div`
     text-align: center;
     color: ${props => (props.isselected ? 'var(--white)' : 'var(--black)')};
     cursor: pointer;
-    transition: background-color 100ms ease-in;
+    transition: background-color 150ms ease-in;
 
     &.last {
         margin-bottom: 0;
