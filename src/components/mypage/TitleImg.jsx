@@ -7,7 +7,7 @@ const Img = React.memo(
     ({ smallImg, isImgOpened, closer, bigimg, onClick, day, isActive }) => {
         const imgIconContent = useMemo(() => {
             return isActive ? (
-                <img src={smallImg} onClick={onClick} />
+                <img src={smallImg} onClick={onClick} style={{width: '92px', height: "92px"}}/>
             ) : (
                 <NoImg />
             );
