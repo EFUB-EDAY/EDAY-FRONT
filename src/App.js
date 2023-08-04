@@ -8,6 +8,7 @@ import HelpPage from './pages/HelpPage';
 import QuizPage from './pages/QuizPage';
 import AnswerPage from './pages/AnswerPage';
 import InfoPage from './pages/InfoPage';
+import EmptyPage from './pages/EmptyPage';
 import LoginHandler from './components/loginpage/LoginHandler';
 import { AnswerProvider } from './components/answerpage/AnswerProvider';
 
@@ -47,6 +48,8 @@ function App() {
                             path='/info/:dDay'
                             element={<InfoPage />}
                         />
+                        {/* 빈 페이지 */}
+                        <Route exact path='/*' element={<EmptyPage />} />
                     </Route>
                 </Routes>
             </AnswerProvider>
