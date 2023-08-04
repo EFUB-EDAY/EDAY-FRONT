@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {GetTitle} from '../api/title'
-
+import { GetTitle } from '../api/title';
 
 import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
@@ -77,10 +76,8 @@ const MyPage = () => {
         setIsImgOpenedAtIndex(index, false);
     };
 
-
-   
     /////////////
-    const [titleList, setTitleList] = useState([])
+    const [titleList, setTitleList] = useState([]);
 
     const [title, setTitle] = useState('');
     useEffect(() => {
@@ -90,51 +87,41 @@ const MyPage = () => {
                 setTitle(res.data.profile);
             })
             .catch(err => console.log(err));
-
     }, []);
 
-
-
-
-    
-useEffect(() => {
-    GetTitle()
-        .then(res => {
-           
-            setTitleList(res.data.titleList);
-          
-        })
-        .catch(err => console.log(err));
-}, []);
     useEffect(() => {
-    console.log(titleList);
-    
+        GetTitle()
+            .then(res => {
+                setTitleList(res.data.titleList);
+            })
+            .catch(err => console.log(err));
+    }, []);
+    useEffect(() => {
+        console.log(titleList);
     }, [titleList]);
 
-const titleName = titleList.map((it)=>it.getTitle ? it.titleName : null)
-const getTitleImg = titleList.map((it)=>it.getTitle ? it.titleImageUrl: null)
-const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
+    const titleName = titleList.map(it => (it.getTitle ? it.titleName : null));
+    const getTitleImg = titleList.map(it =>
+        it.getTitle ? it.titleImageUrl : null,
+    );
+    const isGetTitle = titleList.map(it => (it.getTitle ? true : false));
 
     return (
         <>
             <Wrapper>
                 <Head>
-
                     <Profile userName={title.nickname} />
-                    
-                    <XBtn onClick={goMain}/>
 
+                    <XBtn onClick={goMain} />
                 </Head>
                 <GreenBorder />
                 <Container>
                     <Title>획득한 칭호</Title>
-                   {/* {titleName[5]} */}
-                  
+                    {/* {titleName[5]} */}
+
                     <Img_Day>
                         <TitleImg
-
                             smallImg={getTitleImg[0]}
-
                             bigimg={pd7}
                             day={7}
                             isActive={isGetTitle[0]}
@@ -143,9 +130,7 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                             closer={() => imgcloser(0)}
                         />
                         <TitleImg
-
                             smallImg={getTitleImg[1]}
-
                             bigimg={pd6}
                             day={6}
                             isActive={isGetTitle[1]}
@@ -155,7 +140,6 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                         />
                         <TitleImg
                             smallImg={getTitleImg[2]}
-
                             bigimg={pd5}
                             day={5}
                             isActive={isGetTitle[2]}
@@ -165,32 +149,32 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                         />
                     </Img_Day>
                     <Img_Day>
-
-                        <TitleImg 
-                        smallImg={getTitleImg[3]} 
-                        bigimg={pd4} 
-                        day={4} 
-                        isActive={isGetTitle[3]}
-                        isImgOpened={isImgOpened[3]}
+                        <TitleImg
+                            smallImg={getTitleImg[3]}
+                            bigimg={pd4}
+                            day={4}
+                            isActive={isGetTitle[3]}
+                            isImgOpened={isImgOpened[3]}
                             onClick={() => imgopener(3)}
-                            closer={() => imgcloser(3)}/>
-                        
-                        <TitleImg 
-                        smallImg={getTitleImg[4]} 
-                        bigimg={pd3} 
-                        day={3} 
-                        isActive={isGetTitle[4]}
-                        isImgOpened={isImgOpened[4]}
-                            onClick={() => imgopener(4)}
-                            closer={() => imgcloser(4)}/>
-                        
-                        <TitleImg 
-                        smallImg={getTitleImg[5]}
-                         bigimg={pd2} 
-                         day={2}
-                          isActive={isGetTitle[5]}
-                        isImgOpened={isImgOpened[5]}
+                            closer={() => imgcloser(3)}
+                        />
 
+                        <TitleImg
+                            smallImg={getTitleImg[4]}
+                            bigimg={pd3}
+                            day={3}
+                            isActive={isGetTitle[4]}
+                            isImgOpened={isImgOpened[4]}
+                            onClick={() => imgopener(4)}
+                            closer={() => imgcloser(4)}
+                        />
+
+                        <TitleImg
+                            smallImg={getTitleImg[5]}
+                            bigimg={pd2}
+                            day={2}
+                            isActive={isGetTitle[5]}
+                            isImgOpened={isImgOpened[5]}
                             onClick={() => imgopener(5)}
                             closer={() => imgcloser(5)}
                         />
@@ -198,7 +182,6 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
 
                     <TitleImg
                         smallImg={getTitleImg[6]}
-
                         bigimg={pd1}
                         day={1}
                         isActive={isGetTitle[6]}
@@ -249,15 +232,13 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
 export default MyPage;
 
 const Wrapper = styled.div`
-   margin-top: 30px;
+    margin-top: 57px;
     margin-right: 24px;
     margin-left: 24px;
     /* text-align: center; */
 `;
 
 const Title = styled.p`
-
-  
     font-weight: 500;
 
     font-size: 20px;

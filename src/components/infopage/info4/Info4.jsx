@@ -32,16 +32,16 @@ const Info4 = () => {
                 <Head>
                     <Dday num={'4'} />
 
-                    <XBtn onClick={goQuiz}/>
+                    <XBtn onClick={goQuiz} />
                 </Head>
                 <InfoTitle>
-                <GreenBorder text={'학생 지원'} />
+                    <GreenBorder text={'학생 지원'} />
                 </InfoTitle>
                 <img
                     src={D_4}
                     style={{
                         marginTop: '40px',
-                       
+
                         marginBottom: '40px',
                     }}
                 />
@@ -52,14 +52,13 @@ const Info4 = () => {
                 <InfoBox btnText={'기타 서비스'} content={<Info4Content_2 />} />
                 <FloatingBtn />
             </Wrapper>
-                <BtnStyle>
-                    <Btn
-                        text={'메인페이지로 돌아가기'}
-                        type={'deepGreen'}
-                        onClick={goMain}
-                    />
-                </BtnStyle>
-              
+            <BtnStyle>
+                <Btn
+                    text={'메인페이지로 돌아가기'}
+                    type={'deepGreen'}
+                    onClick={goMain}
+                />
+            </BtnStyle>
         </>
     );
 };
@@ -67,32 +66,30 @@ const Info4 = () => {
 export default Info4;
 
 const Wrapper = styled.div`
- position: relative;
-  display: flex;
+    position: relative;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     min-height: calc(100vh - 110px);
-
 `;
 
 const Head = styled.div`
     width: calc(100% - 48px);
-    margin-top: 30px;
+    margin-top: 57px;
     //margin-bottom: 27px;
     display: flex;
     justify-content: space-between;
-
 `;
 
 const BtnStyle = styled.div`
     text-align: center;
-   // margin-bottom:34px;
+    // margin-bottom:34px;
     height: 110px;
     transform: translatY(-100%);
 `;
 
 const InfoTitle = styled.div`
     width: calc(100% - 48px);
-    margin-top:54px;
-`
+    margin-top: 54px;
+`;

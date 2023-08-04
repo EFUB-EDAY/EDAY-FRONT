@@ -85,7 +85,7 @@ const Wrapper = styled.div`
 
 const Head = styled.div`
     width: calc(100% - 48px);
-    margin-top: 30px;
+    margin-top: 57px;
     /* margin-bottom: 27px; */
     display: flex;
     justify-content: space-between;

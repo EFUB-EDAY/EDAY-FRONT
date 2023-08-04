@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import {help} from '../api/query'
+import { help } from '../api/query';
 import { GetMember } from '../api/member';
 
 import XBtn from '../components/_common/XBtn';
@@ -13,62 +12,54 @@ import Btn from '../components/_common/Btn';
 import Modal from '../components/_common/Modal';
 
 const HelpPage = () => {
-
     // 모달 버튼 클릭 유무를 저장할 state
     const [showModal, setShowModal] = useState(false);
 
     const opener = () => setShowModal(true);
     const closer = () => {
-        setShowModal(false); 
+        setShowModal(false);
         setQuery('');
         setPostDday('');
     };
 
     //제출하기 버튼 눌렀을 시 내용 POST
-    const [query, setQuery] = useState('')
+    const [query, setQuery] = useState('');
 
     //옵션으로 선택된 dDay
-    const [postdDay, setPostDday] = useState()
+    const [postdDay, setPostDday] = useState();
 
     useEffect(() => {
         console.log(postdDay); // 변경된 postdDay 값을 찍어냄
-      }, [postdDay]);
-
+    }, [postdDay]);
 
     //옵션 선택 함수
     const handleSelect = e => {
-        
         setPostDday(e.target.value);
         //console.log(postdDay)
     };
 
-    //제출하기 버튼 
-    const handleSubmit = async(e) =>{
-        
+    //제출하기 버튼
+    const handleSubmit = async e => {
         opener();
 
         e.preventDefault();
 
-        try{
+        try {
             const res = await help(query, postdDay);
-            console.log(res); 
-         }
-            catch(err) {
-                console.error(err);
-            }
-        
-    } 
+            console.log(res);
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
-    const modalText = ()=>{
-        return<>
-        <p>
-        제출되었습니다. 
-        </p>
-        <p>
-        소중한 정보 감사합니다!
-        </p>
-        </>
-    }
+    const modalText = () => {
+        return (
+            <>
+                <p>제출되었습니다.</p>
+                <p>소중한 정보 감사합니다!</p>
+            </>
+        );
+    };
 
     const navigate = useNavigate();
 
@@ -80,7 +71,7 @@ const HelpPage = () => {
             <Wrapper>
                 <Head>
                     <Title>정보수정 문의하기</Title>
-                    <XBtn onClick={goMain}/>
+                    <XBtn onClick={goMain} />
                 </Head>
                 <GreenBorder />
                 <SelectOption value={postdDay} onChange={handleSelect}>
@@ -93,26 +84,25 @@ const HelpPage = () => {
                     <Option value={6}>채플 및 필수교양</Option>
                     <Option value={5}>학생지원</Option>
                     <Option value={4}>학교 내 편의시설 (서비스)</Option>
-                    <Option value={3}>
-                        교과과정 확인 & 시간표 & 수강신청
-                    </Option>
+                    <Option value={3}>교과과정 확인 & 시간표 & 수강신청</Option>
                     <Option value={2}>공강을 보내기 좋은 장소</Option>
                     <Option value={1}>이화 소식</Option>
                 </SelectOption>
 
                 <form onSubmit={handleSubmit}>
-                <Textarea placeholder='잘못된 정보가 있다면 알려주세요.'  
-                value={query}  onChange={(e) => setQuery(e.target.value)}/>
-                
-                <BtnStyle>
-               
-                    <Btn
-                        text={'제출하기'}
-                        type={'deepGreen'}
-                        onClick={handleSubmit}
+                    <Textarea
+                        placeholder='잘못된 정보가 있다면 알려주세요.'
+                        value={query}
+                        onChange={e => setQuery(e.target.value)}
                     />
-                    
-                </BtnStyle>
+
+                    <BtnStyle>
+                        <Btn
+                            text={'제출하기'}
+                            type={'deepGreen'}
+                            onClick={handleSubmit}
+                        />
+                    </BtnStyle>
                 </form>
 
                 {showModal ? (
@@ -133,7 +123,7 @@ const HelpPage = () => {
 export default HelpPage;
 
 const Wrapper = styled.div`
-    margin-top: 30px;
+    margin-top: 57px;
     margin-right: 24px;
     margin-left: 24px;
     text-align: center;
