@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {GetTitle} from '../api/mypage'
+import { GetTitle } from '../api/mypage';
 import { GetMember } from '../api/member';
 
 import XBtn from '../components/_common/XBtn';
@@ -12,24 +12,21 @@ import Modal from '../components/_common/Modal';
 import TitleImg from '../components/mypage/TitleImg';
 
 // 이미지
-import d7 from '../assets/mypage/d7.svg';
-import d6 from '../assets/mypage/d6.svg';
-import d5 from '../assets/mypage/d5.svg';
-import d4 from '../assets/mypage/d4.svg';
-import d3 from '../assets/mypage/d3.svg';
-import d2 from '../assets/mypage/d2.svg';
-import d1 from '../assets/mypage/d1.svg';
+// import d7 from '../assets/mypage/d7.svg';
+// import d6 from '../assets/mypage/d6.svg';
+// import d5 from '../assets/mypage/d5.svg';
+// import d4 from '../assets/mypage/d4.svg';
+// import d3 from '../assets/mypage/d3.svg';
+// import d2 from '../assets/mypage/d2.svg';
+// import d1 from '../assets/mypage/d1.svg';
 
-
-import pd7 from '../assets/mypage/pd7.svg'
-import pd6 from '../assets/mypage/pd6.svg'
-import pd5 from '../assets/mypage/pd5.svg'
-import pd4 from '../assets/mypage/pd4.svg'
-import pd3 from '../assets/mypage/pd3.svg'
-import pd2 from '../assets/mypage/pd2.svg'
-import pd1 from '../assets/mypage/pd1.svg'
-
-
+import pd7 from '../assets/mypage/pd7.svg';
+import pd6 from '../assets/mypage/pd6.svg';
+import pd5 from '../assets/mypage/pd5.svg';
+import pd4 from '../assets/mypage/pd4.svg';
+import pd3 from '../assets/mypage/pd3.svg';
+import pd2 from '../assets/mypage/pd2.svg';
+import pd1 from '../assets/mypage/pd1.svg';
 
 const byeModal = () => {
     return (
@@ -69,7 +66,6 @@ const MyPage = () => {
         navigate(`/`);
     };
     const [isImgOpened, setIsImgOpened] = useState(Array(8).fill(false));
-    
 
     // 배열의 특정 인덱스의 값을 변경하는 함수
     const setIsImgOpenedAtIndex = (index, value) => {
@@ -81,12 +77,10 @@ const MyPage = () => {
     };
 
     const imgopener = index => {
-       
         setIsImgOpenedAtIndex(index, true);
     };
 
     const imgcloser = index => {
-      
         setIsImgOpenedAtIndex(index, false);
     };
 
@@ -118,30 +112,24 @@ const MyPage = () => {
     // const [isImgOpened_7, setIsImgOpened_7] = useState(false);
     // const imgopener_7 = setIsImgOpened_7(true);
     // const imgcloser_7 = setIsImgOpened_7(false);
-    
-    
+
     const [title, setTitle] = useState('');
     useEffect(() => {
         GetTitle()
             .then(res => {
-                console.log(res.data)
+                console.log(res.data);
                 setTitle(res.data.profile);
-                
             })
             .catch(err => console.log(err));
     }, []);
 
-
-   
-    
     return (
         <>
-       
             <Wrapper>
                 <Head>
                     <Profile userName={'이화연'} />
-                    
-                    <XBtn onClick={goMain}/>
+
+                    <XBtn onClick={goMain} />
                 </Head>
                 <GreenBorder />
                 <Container>
@@ -149,7 +137,7 @@ const MyPage = () => {
                     {title.nickname}
                     <Img_Day>
                         <TitleImg
-                            smallImg={d7}
+                            // smallImg={d7}
                             bigimg={pd7}
                             day={7}
                             isActive={true}
@@ -158,7 +146,7 @@ const MyPage = () => {
                             closer={() => imgcloser(0)}
                         />
                         <TitleImg
-                            smallImg={d6}
+                            // smallImg={d6}
                             bigimg={pd6}
                             day={6}
                             isActive={true}
@@ -167,7 +155,7 @@ const MyPage = () => {
                             closer={() => imgcloser(1)}
                         />
                         <TitleImg
-                            smallImg={d5}
+                            // smallImg={d5}
                             bigimg={pd5}
                             day={5}
                             isActive={true}
@@ -177,28 +165,43 @@ const MyPage = () => {
                         />
                     </Img_Day>
                     <Img_Day>
-                        <TitleImg smallImg={d4} bigimg={pd4} day={4} isActive={true}
-                        isImgOpened={isImgOpened[3]}
+                        <TitleImg
+                            // smallImg={d4}
+                            bigimg={pd4}
+                            day={4}
+                            isActive={true}
+                            isImgOpened={isImgOpened[3]}
                             onClick={() => imgopener(3)}
-                            closer={() => imgcloser(3)}/>
-                        <TitleImg smallImg={d3} bigimg={pd3} day={3} isActive={true}
-                        isImgOpened={isImgOpened[4]}
+                            closer={() => imgcloser(3)}
+                        />
+                        <TitleImg
+                            // smallImg={d3}
+                            bigimg={pd3}
+                            day={3}
+                            isActive={true}
+                            isImgOpened={isImgOpened[4]}
                             onClick={() => imgopener(4)}
-                            closer={() => imgcloser(4)}/>
-                        <TitleImg smallImg={d2} bigimg={pd2} day={2} isActive={true}
-                        isImgOpened={isImgOpened[5]}
+                            closer={() => imgcloser(4)}
+                        />
+                        <TitleImg
+                            // smallImg={d2}
+                            bigimg={pd2}
+                            day={2}
+                            isActive={true}
+                            isImgOpened={isImgOpened[5]}
                             onClick={() => imgopener(5)}
-                            closer={() => imgcloser(5)}/>
+                            closer={() => imgcloser(5)}
+                        />
                     </Img_Day>
 
                     <TitleImg
-                        smallImg={d1}
+                        // smallImg={d1}
                         bigimg={pd1}
                         day={1}
                         isActive={true}
                         isImgOpened={isImgOpened[6]}
-                            onClick={() => imgopener(6)}
-                            closer={() => imgcloser(6)}
+                        onClick={() => imgopener(6)}
+                        closer={() => imgcloser(6)}
                     />
                 </Container>
             </Wrapper>
@@ -250,7 +253,6 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 8px;
