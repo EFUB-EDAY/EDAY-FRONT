@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
+// components
+import Loading from '../_common/Loading';
+
 // api
 import { KakaoLogin } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +24,11 @@ const LoginHandler = () => {
             });
     }, []);
 
-    return <Wrapper>Loading...</Wrapper>;
+    return (
+        <Wrapper>
+            <Loading />
+        </Wrapper>
+    );
 };
 
 export default LoginHandler;
