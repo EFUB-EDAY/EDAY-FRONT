@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -12,10 +13,7 @@ import Btn from '../components/_common/Btn';
 import Modal from '../components/_common/Modal';
 
 const HelpPage = () => {
-    //옵션 선택
-  //  const [selecedVal, setSelectedVal] = useState('');
 
-   
     // 모달 버튼 클릭 유무를 저장할 state
     const [showModal, setShowModal] = useState(false);
 
@@ -26,9 +24,11 @@ const HelpPage = () => {
         setPostDday('');
     };
 
-    //제출하기 버튼 눌렀을 시(post)
+    //제출하기 버튼 눌렀을 시 내용 POST
     const [query, setQuery] = useState('')
-    const [postdDay, setPostDday] = useState('')
+
+    //옵션으로 선택된 dDay
+    const [postdDay, setPostDday] = useState()
 
     useEffect(() => {
         console.log(postdDay); // 변경된 postdDay 값을 찍어냄
@@ -44,27 +44,20 @@ const HelpPage = () => {
 
     //제출하기 버튼 
     const handleSubmit = async(e) =>{
-        opener()
-        e.preventDefault();
-        const res = await help(profile, query, postdDay);
-        console.log(res);  
-    } 
-
-    //유저 아이디 get
-    const [profile, setProfile] = useState('');
-    useEffect(() => {
         
-        GetMember()
-            .then(res => {
-                setProfile(res.data.profile.nickname);
-                console.log(profile)
-            })
-            .catch(err => console.log(err));
-    }, []);
+        opener();
 
-    
+        e.preventDefault();
 
-
+        try{
+            const res = await help(query, postdDay);
+            console.log(res); 
+         }
+            catch(err) {
+                console.error(err);
+            }
+        
+    } 
 
     const modalText = ()=>{
         return<>
@@ -94,17 +87,17 @@ const HelpPage = () => {
                     <Option value='' selected disabled hidden>
                         어느 구역의 정보 수정이 필요한가요?
                     </Option>
-                    <Option value='option7'>
+                    <Option value={7}>
                         건물위치 & 이동경로 & 소요시간 & 셔틀
                     </Option>
-                    <Option value='option6'>채플 및 필수교양</Option>
-                    <Option value='option5'>학생지원</Option>
-                    <Option value='option4'>학교 내 편의시설 (서비스)</Option>
-                    <Option value='option3'>
+                    <Option value={6}>채플 및 필수교양</Option>
+                    <Option value={5}>학생지원</Option>
+                    <Option value={4}>학교 내 편의시설 (서비스)</Option>
+                    <Option value={3}>
                         교과과정 확인 & 시간표 & 수강신청
                     </Option>
-                    <Option value='option2'>공강을 보내기 좋은 장소</Option>
-                    <Option value='option1'>이화 소식</Option>
+                    <Option value={2}>공강을 보내기 좋은 장소</Option>
+                    <Option value={1}>이화 소식</Option>
                 </SelectOption>
 
                 <form onSubmit={handleSubmit}>
@@ -140,7 +133,7 @@ const HelpPage = () => {
 export default HelpPage;
 
 const Wrapper = styled.div`
-    margin-top: 12px;
+    margin-top: 30px;
     margin-right: 24px;
     margin-left: 24px;
     text-align: center;

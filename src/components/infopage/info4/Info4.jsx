@@ -73,11 +73,12 @@ const Wrapper = styled.div`
     align-items: center;
     width: 100%;
     min-height: calc(100vh - 110px);
+
 `;
 
 const Head = styled.div`
     width: calc(100% - 48px);
-    margin-top: 12px;
+    margin-top: 30px;
     //margin-bottom: 27px;
     display: flex;
     justify-content: space-between;

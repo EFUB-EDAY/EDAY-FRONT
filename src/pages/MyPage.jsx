@@ -2,23 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GetTitle } from '../api/mypage';
-import { GetMember } from '../api/member';
+import {GetTitle} from '../api/title'
+
 
 import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
 import Profile from '../components/_common/Profile';
 import Modal from '../components/_common/Modal';
 import TitleImg from '../components/mypage/TitleImg';
-
-// 이미지
-// import d7 from '../assets/mypage/d7.svg';
-// import d6 from '../assets/mypage/d6.svg';
-// import d5 from '../assets/mypage/d5.svg';
-// import d4 from '../assets/mypage/d4.svg';
-// import d3 from '../assets/mypage/d3.svg';
-// import d2 from '../assets/mypage/d2.svg';
-// import d1 from '../assets/mypage/d1.svg';
 
 import pd7 from '../assets/mypage/pd7.svg';
 import pd6 from '../assets/mypage/pd6.svg';
@@ -65,6 +56,8 @@ const MyPage = () => {
     const goMain = () => {
         navigate(`/`);
     };
+
+    //모달 이미지 오픈 여부
     const [isImgOpened, setIsImgOpened] = useState(Array(8).fill(false));
 
     // 배열의 특정 인덱스의 값을 변경하는 함수
@@ -84,34 +77,10 @@ const MyPage = () => {
         setIsImgOpenedAtIndex(index, false);
     };
 
-    //칭호 관리
-    // const [isActive, setIsActive] = useState(Array(8).fill(true));
 
-    // //이미지 열렸는지 여부
-    // const [isImgOpened, setIsImgOpened] = useState(Array(8).fill(false));
-
-    // //칭호 배열의 특정 인덱스의 값을 변경하는 함수
-    // const setIsImgOpenedAtIndex = (index, value) => {
-    //     setIsImgOpened(prevState => {
-    //         const newState = [...prevState];
-    //         newState[index] = value;
-    //         return newState;
-    //     });
-    // };
-
-    // const imgopener = index => {
-    //     setIsImgOpenedAtIndex(index, true);
-    // };
-
-    // const imgcloser = index => {
-    //     setIsImgOpenedAtIndex(index, false);
-    // };
-
-    // const [isActive_7, setIsActive_7] = useState(true);
-
-    // const [isImgOpened_7, setIsImgOpened_7] = useState(false);
-    // const imgopener_7 = setIsImgOpened_7(true);
-    // const imgcloser_7 = setIsImgOpened_7(false);
+   
+    /////////////
+    const [titleList, setTitleList] = useState([])
 
     const [title, setTitle] = useState('');
     useEffect(() => {
@@ -121,84 +90,118 @@ const MyPage = () => {
                 setTitle(res.data.profile);
             })
             .catch(err => console.log(err));
+
     }, []);
+
+
+
+
+    
+useEffect(() => {
+    GetTitle()
+        .then(res => {
+           
+            setTitleList(res.data.titleList);
+          
+        })
+        .catch(err => console.log(err));
+}, []);
+    useEffect(() => {
+    console.log(titleList);
+    
+    }, [titleList]);
+
+const titleName = titleList.map((it)=>it.getTitle ? it.titleName : null)
+const getTitleImg = titleList.map((it)=>it.getTitle ? it.titleImageUrl: null)
+const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
 
     return (
         <>
             <Wrapper>
                 <Head>
-                    <Profile userName={'이화연'} />
 
-                    <XBtn onClick={goMain} />
+                    <Profile userName={title.nickname} />
+                    
+                    <XBtn onClick={goMain}/>
+
                 </Head>
                 <GreenBorder />
                 <Container>
                     <Title>획득한 칭호</Title>
-                    {title.nickname}
+                   {/* {titleName[5]} */}
+                  
                     <Img_Day>
                         <TitleImg
-                            // smallImg={d7}
+
+                            smallImg={getTitleImg[0]}
+
                             bigimg={pd7}
                             day={7}
-                            isActive={true}
+                            isActive={isGetTitle[0]}
                             isImgOpened={isImgOpened[0]}
                             onClick={() => imgopener(0)}
                             closer={() => imgcloser(0)}
                         />
                         <TitleImg
-                            // smallImg={d6}
+
+                            smallImg={getTitleImg[1]}
+
                             bigimg={pd6}
                             day={6}
-                            isActive={true}
+                            isActive={isGetTitle[1]}
                             isImgOpened={isImgOpened[1]}
                             onClick={() => imgopener(1)}
                             closer={() => imgcloser(1)}
                         />
                         <TitleImg
-                            // smallImg={d5}
+                            smallImg={getTitleImg[2]}
+
                             bigimg={pd5}
                             day={5}
-                            isActive={true}
+                            isActive={isGetTitle[2]}
                             isImgOpened={isImgOpened[2]}
                             onClick={() => imgopener(2)}
                             closer={() => imgcloser(2)}
                         />
                     </Img_Day>
                     <Img_Day>
-                        <TitleImg
-                            // smallImg={d4}
-                            bigimg={pd4}
-                            day={4}
-                            isActive={true}
-                            isImgOpened={isImgOpened[3]}
+
+                        <TitleImg 
+                        smallImg={getTitleImg[3]} 
+                        bigimg={pd4} 
+                        day={4} 
+                        isActive={isGetTitle[3]}
+                        isImgOpened={isImgOpened[3]}
                             onClick={() => imgopener(3)}
-                            closer={() => imgcloser(3)}
-                        />
-                        <TitleImg
-                            // smallImg={d3}
-                            bigimg={pd3}
-                            day={3}
-                            isActive={true}
-                            isImgOpened={isImgOpened[4]}
+                            closer={() => imgcloser(3)}/>
+                        
+                        <TitleImg 
+                        smallImg={getTitleImg[4]} 
+                        bigimg={pd3} 
+                        day={3} 
+                        isActive={isGetTitle[4]}
+                        isImgOpened={isImgOpened[4]}
                             onClick={() => imgopener(4)}
-                            closer={() => imgcloser(4)}
-                        />
-                        <TitleImg
-                            // smallImg={d2}
-                            bigimg={pd2}
-                            day={2}
-                            isActive={true}
-                            isImgOpened={isImgOpened[5]}
+                            closer={() => imgcloser(4)}/>
+                        
+                        <TitleImg 
+                        smallImg={getTitleImg[5]}
+                         bigimg={pd2} 
+                         day={2}
+                          isActive={isGetTitle[5]}
+                        isImgOpened={isImgOpened[5]}
+
                             onClick={() => imgopener(5)}
                             closer={() => imgcloser(5)}
                         />
                     </Img_Day>
 
                     <TitleImg
-                        // smallImg={d1}
+                        smallImg={getTitleImg[6]}
+
                         bigimg={pd1}
                         day={1}
-                        isActive={true}
+                        isActive={isGetTitle[6]}
                         isImgOpened={isImgOpened[6]}
                         onClick={() => imgopener(6)}
                         closer={() => imgcloser(6)}
@@ -246,14 +249,17 @@ const MyPage = () => {
 export default MyPage;
 
 const Wrapper = styled.div`
-    margin-top: 12px;
+   margin-top: 30px;
     margin-right: 24px;
     margin-left: 24px;
     /* text-align: center; */
 `;
 
 const Title = styled.p`
-    font-weight: 700;
+
+  
+    font-weight: 500;
+
     font-size: 20px;
     margin-bottom: 8px;
 `;
@@ -280,6 +286,7 @@ const Footer = styled.div`
     color: white;
     height: 180px;
     padding-top: 16px;
+    width: 100%;
 `;
 
 const Text = styled.p`

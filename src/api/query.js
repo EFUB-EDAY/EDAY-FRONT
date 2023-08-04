@@ -1,11 +1,11 @@
 import client from './client';
 
-export const help= async (memberId, queryContent, dDay) => {
+export const help= async (queryContent, dday) => {
     try {
         const response = await client.post(`/querys`,{
-            memberId: memberId,
+            
             queryContent: queryContent,
-            dDay: dDay
+            dday: dday
         });
         console.log(response);
         return Promise.resolve(response);

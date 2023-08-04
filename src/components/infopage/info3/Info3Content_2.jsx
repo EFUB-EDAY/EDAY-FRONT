@@ -59,6 +59,7 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                     noMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(0)}
                     closer={() => closer(0)}
@@ -66,6 +67,7 @@ const Info3Content_2 = () => {
                     isImgOpened={isImgOpened[0]}
                     color='white'
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -78,12 +80,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(1)}
                     closer={() => closer(1)}
                     img={fitness}
                     isImgOpened={isImgOpened[1]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -97,12 +101,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(2)}
                     closer={() => closer(2)}
                     img={rest}
                     isImgOpened={isImgOpened[2]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -117,6 +123,7 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(3)}
                     closer={() => closer(3)}
@@ -124,6 +131,7 @@ const Info3Content_2 = () => {
                     isImgOpened={isImgOpened[3]}
                     color='white'
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -137,6 +145,7 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(4)}
                     closer={() => closer(4)}
@@ -144,6 +153,7 @@ const Info3Content_2 = () => {
                     isImgOpened={isImgOpened[4]}
                     color='white'
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={`이화 YBM 열람실, 이화 신한 열람실이 있어요!`}
@@ -161,6 +171,7 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(5)}
                     closer={() => closer(5)}
@@ -168,6 +179,7 @@ const Info3Content_2 = () => {
                     isImgOpened={isImgOpened[5]}
                     color='white'
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent text={'자유 열람실에서 열심히 공부해보아요.'} />
             <InfoContent text={'b) 잉글리쉬라운지'} noMargin={true} />
@@ -183,12 +195,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(6)}
                     closer={() => closer(6)}
                     img={stair}
                     isImgOpened={isImgOpened[6]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -206,12 +220,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(7)}
                     closer={() => closer(7)}
                     img={hm_fitness}
                     isImgOpened={isImgOpened[7]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={'이 곳에서 체력을 길러 보아요.'}
@@ -230,12 +246,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(8)}
                     closer={() => closer(8)}
                     img={sleep}
                     isImgOpened={isImgOpened[8]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={'공강시간에 잠을 잘 수 있어요!'}
@@ -249,12 +267,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(9)}
                     closer={() => closer(9)}
                     img={theLounge}
                     isImgOpened={isImgOpened[9]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -273,12 +293,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                 <ImgWrapper>
                 <Img
                     onClick={() => opener(10)}
                     closer={() => closer(10)}
                     img={smartLounge}
                     isImgOpened={isImgOpened[10]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent text={'편안한 분위기 속에서 공강을 즐길 수 있어요.'} />
             <InfoContent text={'6층'} type={'smallDot'} />
@@ -289,6 +311,7 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(11)}
                     closer={() => closer(11)}
@@ -296,6 +319,7 @@ const Info3Content_2 = () => {
                     isImgOpened={isImgOpened[11]}
                     color='white'
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent text={'밀린 과제 및 공부를 할 수 있어요.'} />
 
@@ -310,12 +334,14 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(12)}
                     closer={() => closer(12)}
                     img={ac_ttb}
                     isImgOpened={isImgOpened[12]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -329,6 +355,7 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
+                <ImgWrapper>
                 <Img
                     onClick={() => opener(13)}
                     closer={() => closer(13)}
@@ -336,6 +363,7 @@ const Info3Content_2 = () => {
                     isImgOpened={isImgOpened[13]}
                     color='white'
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 text={
@@ -351,7 +379,7 @@ const Info3Content_2 = () => {
                     text={
                         'D동 유연학습공간, Ewha Learning Space 라운지에서 공부, 과제 등을 하며 공강 시간을 보낼 수 있어요.'
                     }
-                    type={'top'}
+                    type={'top'} noMargin={true}
                 />
                 <ImgWrapper>
                     <Img
@@ -371,16 +399,16 @@ const Info3Content_2 = () => {
                     text={
                         '카페 아이엔지에서 맛있는 음료 및 디저트를 먹으며 공강 시간을 보낼 수 있어요.'
                     }
-                    type={'top'}
+                    type={'top'} noMargin={true}
                 />
-                <ImgWrapper2>
+                <ImgWrapper>
                     <Img
                         onClick={() => opener(15)}
                         closer={() => closer(15)}
                         img={cafe}
                         isImgOpened={isImgOpened[15]}
                     />
-                </ImgWrapper2>
+                </ImgWrapper>
             </Overlay>
 
             {/* 7번 */}
@@ -414,23 +442,16 @@ const Text_Img = styled.div`
 const ImgWrapper = styled.div`
     position: absolute;
     display: flex;
+    width: calc(100% - 20px);
     justify-content: end;
-
-    margin-right: 110px;
-    margin-top: 10px;
+    margin-bottom: 2px;
+    
 `;
 
 const Overlay = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: end;
+    align-items: end;
+    
+    justify-content: space-between;
 `;
 
-const ImgWrapper2 = styled.div`
-    position: absolute;
-    display: flex;
-    justify-content: end;
-
-    margin-right: 240px;
-    margin-top: 10px;
-`;
