@@ -41,7 +41,6 @@ const AnswerPage = () => {
             <AnswerWrapper style={{ marginTop: answerMargin }}>
                 <CheckAnswer>정답확인 :</CheckAnswer>
                 <Answer>{answerContent}</Answer>
-                {/* <Answer>초록</Answer> */}
                 <AnswerInfo>
                     {quizDescription}
                     {dDay === '1' && (
@@ -50,13 +49,6 @@ const AnswerPage = () => {
                         </EwhaGreen>
                     )}
                 </AnswerInfo>
-                {/* <AnswerInfo>
-            무인복합기는 모든 건물에 있지만 흑백은 약
-            50원, 컬러는 약 300~400원 정도의 가격을 지불해야 해요. 용지만
-            들고 간다면 무료로 인쇄가 가능한 곳은 학생문화관 최대 네줄
-            우하하학
-            {dDay === '1' && <img src={ewhaGreen} alt='이화 그린' />}
-        </AnswerInfo> */}
             </AnswerWrapper>
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 <TopBtn>
@@ -104,7 +96,7 @@ const Answer = styled.div`
     border-radius: 4px;
 
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     color: var(--white);
 `;
