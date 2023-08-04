@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/quizpage/Header';
 import Btn from '../components/_common/Btn';
-import ewhaGreen from '../assets/answerpage/ewhaGreen.svg';
 import { AnswerContext } from '../components/answerpage/AnswerProvider';
 
 const AnswerPage = () => {
@@ -11,6 +10,7 @@ const AnswerPage = () => {
     const { dDay } = useParams();
     const { quizDescription } = useContext(AnswerContext);
     const { answerContent } = useContext(AnswerContext);
+    const { quizDesImg } = useContext(AnswerContext);
 
     // 퀴즈 줄 개수(dDay)에 따라 정답 버튼과 퀴즈 사이의 간격 &
     // 설명 박스와 '추가정보 보러가기'버튼 사이의 간격 다르게 하기
@@ -41,22 +41,14 @@ const AnswerPage = () => {
             <AnswerWrapper style={{ marginTop: answerMargin }}>
                 <CheckAnswer>정답확인 :</CheckAnswer>
                 <Answer>{answerContent}</Answer>
-                {/* <Answer>초록</Answer> */}
                 <AnswerInfo>
                     {quizDescription}
                     {dDay === '1' && (
                         <EwhaGreen>
-                            <img src={ewhaGreen} alt='이화 그린' />
+                            <img src={quizDesImg} alt='이화 그린' />
                         </EwhaGreen>
                     )}
                 </AnswerInfo>
-                {/* <AnswerInfo>
-            무인복합기는 모든 건물에 있지만 흑백은 약
-            50원, 컬러는 약 300~400원 정도의 가격을 지불해야 해요. 용지만
-            들고 간다면 무료로 인쇄가 가능한 곳은 학생문화관 최대 네줄
-            우하하학
-            {dDay === '1' && <img src={ewhaGreen} alt='이화 그린' />}
-        </AnswerInfo> */}
             </AnswerWrapper>
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 <TopBtn>
@@ -104,7 +96,7 @@ const Answer = styled.div`
     border-radius: 4px;
 
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     color: var(--white);
 `;
@@ -152,4 +144,9 @@ const TopBtn = styled.div`
 
 const EwhaGreen = styled.div`
     margin-top: 20px;
+
+    & > img {
+        width: 302px;
+        height: 70px;
+    }
 `;

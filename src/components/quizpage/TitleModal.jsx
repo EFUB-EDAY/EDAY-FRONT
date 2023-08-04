@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
 
 import Confetti from '../../assets/lottie/Confetti';
-
-import t1 from '../../assets/titleimg/t1.svg';
-import t2 from '../../assets/titleimg/t2.svg';
-import t3 from '../../assets/titleimg/t3.svg';
-import t4 from '../../assets/titleimg/t4.svg';
-import t5 from '../../assets/titleimg/t5.svg';
-import t6 from '../../assets/titleimg/t6.svg';
-import t7 from '../../assets/titleimg/t7.svg';
+import { AnswerContext } from '../../components/answerpage/AnswerProvider';
 
 const TitleModal = () => {
     const { dDay } = useParams();
     const [showConfetti, setShowConfetti] = useState(false);
+    const { titleImgUrl } = useContext(AnswerContext);
 
     useEffect(() => {
         document.body.style.cssText = `
@@ -33,7 +27,7 @@ const TitleModal = () => {
     useEffect(() => {
         setTimeout(() => {
             setShowConfetti(true);
-        }, 500);
+        }, 300);
     }, [dDay]);
 
     return (
@@ -41,42 +35,8 @@ const TitleModal = () => {
             <Container>
                 <Background />
                 <ModalBlock>
-                    {dDay === '1' ? (
-                        <>
-                            <TitleImg src={t1} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : dDay === '2' ? (
-                        <>
-                            <TitleImg src={t2} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : dDay === '3' ? (
-                        <>
-                            <TitleImg src={t3} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : dDay === '4' ? (
-                        <>
-                            <TitleImg src={t4} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : dDay === '5' ? (
-                        <>
-                            <TitleImg src={t5} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : dDay === '6' ? (
-                        <>
-                            <TitleImg src={t6} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : dDay === '7' ? (
-                        <>
-                            <TitleImg src={t7} />
-                            {showConfetti && <Confetti width='342px' />}
-                        </>
-                    ) : null}
+                    <TitleImg src={titleImgUrl} />
+                    {showConfetti && <Confetti width='342px' />}
                 </ModalBlock>
             </Container>
         </>

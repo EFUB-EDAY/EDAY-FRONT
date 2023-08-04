@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {GetTitle} from '../api/title'
-import { GetMember } from '../api/member';
+
 
 import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
@@ -11,25 +11,13 @@ import Profile from '../components/_common/Profile';
 import Modal from '../components/_common/Modal';
 import TitleImg from '../components/mypage/TitleImg';
 
-// 칭호 이미지
-// import d7 from '../assets/mypage/d7.svg';
-// import d6 from '../assets/mypage/d6.svg';
-// import d5 from '../assets/mypage/d5.svg';
-// import d4 from '../assets/mypage/d4.svg';
-// import d3 from '../assets/mypage/d3.svg';
-// import d2 from '../assets/mypage/d2.svg';
-// import d1 from '../assets/mypage/d1.svg';
-
-//팝업이미지
-import pd7 from '../assets/mypage/pd7.svg'
-import pd6 from '../assets/mypage/pd6.svg'
-import pd5 from '../assets/mypage/pd5.svg'
-import pd4 from '../assets/mypage/pd4.svg'
-import pd3 from '../assets/mypage/pd3.svg'
-import pd2 from '../assets/mypage/pd2.svg'
-import pd1 from '../assets/mypage/pd1.svg'
-
-
+import pd7 from '../assets/mypage/pd7.svg';
+import pd6 from '../assets/mypage/pd6.svg';
+import pd5 from '../assets/mypage/pd5.svg';
+import pd4 from '../assets/mypage/pd4.svg';
+import pd3 from '../assets/mypage/pd3.svg';
+import pd2 from '../assets/mypage/pd2.svg';
+import pd1 from '../assets/mypage/pd1.svg';
 
 const byeModal = () => {
     return (
@@ -71,7 +59,6 @@ const MyPage = () => {
 
     //모달 이미지 오픈 여부
     const [isImgOpened, setIsImgOpened] = useState(Array(8).fill(false));
-    
 
     // 배열의 특정 인덱스의 값을 변경하는 함수
     const setIsImgOpenedAtIndex = (index, value) => {
@@ -83,29 +70,29 @@ const MyPage = () => {
     };
 
     const imgopener = index => {
-       
         setIsImgOpenedAtIndex(index, true);
     };
 
     const imgcloser = index => {
-      
         setIsImgOpenedAtIndex(index, false);
     };
+
 
    
     /////////////
     const [titleList, setTitleList] = useState([])
+
     const [title, setTitle] = useState('');
     useEffect(() => {
         GetTitle()
             .then(res => {
-                console.log(res.data)
+                console.log(res.data);
                 setTitle(res.data.profile);
-                
             })
             .catch(err => console.log(err));
 
     }, []);
+
 
 
 
@@ -128,16 +115,15 @@ const titleName = titleList.map((it)=>it.getTitle ? it.titleName : null)
 const getTitleImg = titleList.map((it)=>it.getTitle ? it.titleImageUrl: null)
 const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
 
-
-
     return (
         <>
-       
             <Wrapper>
                 <Head>
+
                     <Profile userName={title.nickname} />
                     
                     <XBtn onClick={goMain}/>
+
                 </Head>
                 <GreenBorder />
                 <Container>
@@ -146,7 +132,9 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                   
                     <Img_Day>
                         <TitleImg
+
                             smallImg={getTitleImg[0]}
+
                             bigimg={pd7}
                             day={7}
                             isActive={isGetTitle[0]}
@@ -155,7 +143,9 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                             closer={() => imgcloser(0)}
                         />
                         <TitleImg
+
                             smallImg={getTitleImg[1]}
+
                             bigimg={pd6}
                             day={6}
                             isActive={isGetTitle[1]}
@@ -165,6 +155,7 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                         />
                         <TitleImg
                             smallImg={getTitleImg[2]}
+
                             bigimg={pd5}
                             day={5}
                             isActive={isGetTitle[2]}
@@ -174,6 +165,7 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                         />
                     </Img_Day>
                     <Img_Day>
+
                         <TitleImg 
                         smallImg={getTitleImg[3]} 
                         bigimg={pd4} 
@@ -198,18 +190,21 @@ const isGetTitle = titleList.map((it)=>it.getTitle ? true: false)
                          day={2}
                           isActive={isGetTitle[5]}
                         isImgOpened={isImgOpened[5]}
+
                             onClick={() => imgopener(5)}
-                            closer={() => imgcloser(5)}/>
+                            closer={() => imgcloser(5)}
+                        />
                     </Img_Day>
 
                     <TitleImg
                         smallImg={getTitleImg[6]}
+
                         bigimg={pd1}
                         day={1}
                         isActive={isGetTitle[6]}
                         isImgOpened={isImgOpened[6]}
-                            onClick={() => imgopener(6)}
-                            closer={() => imgcloser(6)}
+                        onClick={() => imgopener(6)}
+                        closer={() => imgcloser(6)}
                     />
                 </Container>
             </Wrapper>
@@ -261,8 +256,10 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
+
   
     font-weight: 500;
+
     font-size: 20px;
     margin-bottom: 8px;
 `;
