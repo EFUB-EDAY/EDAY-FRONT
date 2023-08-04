@@ -64,16 +64,21 @@ const Info3Content_1 = () => {
                 }
             />
             <Text_Img>
+              
                 <InfoContent
                     text={'3층, 4층 창의학습실'}
                     NoRightMargin={true}
                 />
+                <ImgWrapper >
                 <Img
                     onClick={() => handleOpen(1)}
                     closer={() => handleClose(1)}
                     img={lib_34f}
                     isImgOpened={isImgOpened[1]}
                 />
+                
+                </ImgWrapper>
+              
             </Text_Img>
             <InfoContent
                 type={'smallDot'}
@@ -87,12 +92,14 @@ const Info3Content_1 = () => {
                     text={'4층 소곤소곤 라운지'}
                     NoRightMargin={true}
                 />
+                <ImgWrapper >
                 <Img
                     onClick={() => handleOpen(2)}
                     closer={() => handleClose(2)}
                     img={lib_sgsg}
                     isImgOpened={isImgOpened[2]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 type={'smallDot'}
@@ -100,12 +107,14 @@ const Info3Content_1 = () => {
             />
             <Text_Img>
                 <InfoContent text={'5층 서가'} NoRightMargin={true} />
+                <ImgWrapper >
                 <Img
                     onClick={() => handleOpen(3)}
                     closer={() => handleClose(3)}
                     img={lib_5f}
                     isImgOpened={isImgOpened[3]}
                 />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 type={'smallDot'}
@@ -242,6 +251,22 @@ const Text_Img = styled.div`
 `;
 
 //맨 처음 이미지 위치 조정
+// const ImgWrapper = styled.div`
+//     margin-bottom: 5px;
+// `;
+
 const ImgWrapper = styled.div`
-    margin-bottom: 5px;
+    position: absolute;
+    display: flex;
+    width: calc(100% - 20px);
+    justify-content: end;
+    margin-bottom: 2px;
+    align-items: center;
+`;
+
+const Overlay = styled.div`
+    display: flex;
+    align-items: end;
+    
+    justify-content: space-between;
 `;
