@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import {useState} from 'react'
+import { useState } from 'react';
 
 import XBtn from '../../_common/XBtn';
 import GreenBorder from '../../_common/GreenBorder';
@@ -25,8 +25,7 @@ const Info3 = () => {
         navigate('/answer/4');
     };
     //cinfoBox 버튼 눌렸는지
-    const [isBtnClicked, setIsBtnClicked] = useState(false)
-
+    const [isBtnClicked, setIsBtnClicked] = useState(false);
 
     return (
         <>
@@ -34,10 +33,10 @@ const Info3 = () => {
                 <Head>
                     <Dday num={'3'} />
 
-                    <XBtn onClick={goQuiz}/>
+                    <XBtn onClick={goQuiz} />
                 </Head>
                 <InfoTitle>
-                <GreenBorder text={'공강을 보내기 좋은 장소'} />
+                    <GreenBorder text={'공강을 보내기 좋은 장소'} />
                 </InfoTitle>
                 <MapImg>
                     <img
@@ -49,25 +48,26 @@ const Info3 = () => {
                     />
                 </MapImg>
 
-
-               
-                <InfoBox btnText={'도서관'} content={<Info3Content_1 />} onClick1={()=>setIsBtnClicked(!isBtnClicked)}/>
-                <InfoBox btnText={'기타 장소'} content={<Info3Content_2 />} onClick1={()=>setIsBtnClicked(!isBtnClicked)}/>
+                <InfoBox
+                    btnText={'도서관'}
+                    content={<Info3Content_1 />}
+                    onClick1={() => setIsBtnClicked(!isBtnClicked)}
+                />
+                <InfoBox
+                    btnText={'기타 장소'}
+                    content={<Info3Content_2 />}
+                    onClick1={() => setIsBtnClicked(!isBtnClicked)}
+                />
                 <FloatingBtn />
-                </Wrapper>
+            </Wrapper>
 
-                <BtnStyle isClicked={isBtnClicked}>
-                
-                    <Btn
-                        text={'메인페이지로 돌아가기'}
-                        type={'deepGreen'}
-                        onClick={goMain}
-                    />
-                    
-                </BtnStyle>
-                
-               
-            
+            <BtnStyle isClicked={isBtnClicked}>
+                <Btn
+                    text={'메인페이지로 돌아가기'}
+                    type={'deepGreen'}
+                    onClick={goMain}
+                />
+            </BtnStyle>
         </>
     );
 };
@@ -75,42 +75,34 @@ const Info3 = () => {
 export default Info3;
 
 const Wrapper = styled.div`
-    
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     min-height: calc(100vh - 110px);
-    
 `;
 
-
 const Head = styled.div`
-width: calc(100% - 48px);
-    margin-top: 30px;
+    width: calc(100% - 48px);
+    margin-top: 57px;
     /* margin-bottom: 27px; */
     display: flex;
     justify-content: space-between;
-
-   
 `;
 const InfoTitle = styled.div`
     width: calc(100% - 48px);
-    margin-top:54px;
- 
-`
+    margin-top: 54px;
+`;
 
 const BtnStyle = styled.div`
     text-align: center;
 
-   // margin-bottom: 22px;
+    // margin-bottom: 22px;
     height: 110px;
     transform: translatY(-100%);
-    
 `;
 
 const MapImg = styled.div`
     text-align: center;
-
-`
+`;

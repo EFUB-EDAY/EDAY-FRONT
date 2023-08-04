@@ -182,7 +182,7 @@ const HeaderContainer = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 35px;
+        margin-top: 57px;
     }
     .text {
         font-family: 'NanumBarunpen';

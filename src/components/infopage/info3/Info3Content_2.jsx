@@ -48,10 +48,10 @@ const Info3Content_2 = () => {
     };
 
     return (
-        <div>
+        <Wrapper>
             {/* 1번 */}
             <Title num={'1.'} title={'ECC'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'지하 4층'} type={'both'} />
             <Text_Img>
                 <InfoContent
@@ -60,13 +60,13 @@ const Info3Content_2 = () => {
                     noMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(0)}
-                    closer={() => closer(0)}
-                    img={momo}
-                    isImgOpened={isImgOpened[0]}
-                    color='white'
-                />
+                    <Img
+                        onClick={() => opener(0)}
+                        closer={() => closer(0)}
+                        img={momo}
+                        isImgOpened={isImgOpened[0]}
+                        color='white'
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -81,12 +81,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(1)}
-                    closer={() => closer(1)}
-                    img={fitness}
-                    isImgOpened={isImgOpened[1]}
-                />
+                    <Img
+                        onClick={() => opener(1)}
+                        closer={() => closer(1)}
+                        img={fitness}
+                        isImgOpened={isImgOpened[1]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -102,12 +102,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(2)}
-                    closer={() => closer(2)}
-                    img={rest}
-                    isImgOpened={isImgOpened[2]}
-                />
+                    <Img
+                        onClick={() => opener(2)}
+                        closer={() => closer(2)}
+                        img={rest}
+                        isImgOpened={isImgOpened[2]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -124,13 +124,13 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(3)}
-                    closer={() => closer(3)}
-                    img={tomorrow}
-                    isImgOpened={isImgOpened[3]}
-                    color='white'
-                />
+                    <Img
+                        onClick={() => opener(3)}
+                        closer={() => closer(3)}
+                        img={tomorrow}
+                        isImgOpened={isImgOpened[3]}
+                        color='white'
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -146,13 +146,13 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(4)}
-                    closer={() => closer(4)}
-                    img={ecc_shinhan}
-                    isImgOpened={isImgOpened[4]}
-                    color='white'
-                />
+                    <Img
+                        onClick={() => opener(4)}
+                        closer={() => closer(4)}
+                        img={ecc_shinhan}
+                        isImgOpened={isImgOpened[4]}
+                        color='white'
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -172,13 +172,13 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(5)}
-                    closer={() => closer(5)}
-                    img={ecc_shinhan}
-                    isImgOpened={isImgOpened[5]}
-                    color='white'
-                />
+                    <Img
+                        onClick={() => opener(5)}
+                        closer={() => closer(5)}
+                        img={ecc_shinhan}
+                        isImgOpened={isImgOpened[5]}
+                        color='white'
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent text={'자유 열람실에서 열심히 공부해보아요.'} />
@@ -196,12 +196,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(6)}
-                    closer={() => closer(6)}
-                    img={stair}
-                    isImgOpened={isImgOpened[6]}
-                />
+                    <Img
+                        onClick={() => opener(6)}
+                        closer={() => closer(6)}
+                        img={stair}
+                        isImgOpened={isImgOpened[6]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -212,7 +212,7 @@ const Info3Content_2 = () => {
 
             {/* 2번 */}
             <Title num={'2.'} title={'학문관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'지하 1층'} type={'both'} />
             <Text_Img>
                 <InfoContent
@@ -221,12 +221,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(7)}
-                    closer={() => closer(7)}
-                    img={hm_fitness}
-                    isImgOpened={isImgOpened[7]}
-                />
+                    <Img
+                        onClick={() => opener(7)}
+                        closer={() => closer(7)}
+                        img={hm_fitness}
+                        isImgOpened={isImgOpened[7]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -247,12 +247,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(8)}
-                    closer={() => closer(8)}
-                    img={sleep}
-                    isImgOpened={isImgOpened[8]}
-                />
+                    <Img
+                        onClick={() => opener(8)}
+                        closer={() => closer(8)}
+                        img={sleep}
+                        isImgOpened={isImgOpened[8]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -268,12 +268,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(9)}
-                    closer={() => closer(9)}
-                    img={theLounge}
-                    isImgOpened={isImgOpened[9]}
-                />
+                    <Img
+                        onClick={() => opener(9)}
+                        closer={() => closer(9)}
+                        img={theLounge}
+                        isImgOpened={isImgOpened[9]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -284,7 +284,7 @@ const Info3Content_2 = () => {
 
             {/* 3번 */}
             <Title num={'3.'} title={'포스코관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'지하 1층'} type={'both'} />
 
             <Text_Img>
@@ -293,13 +293,13 @@ const Info3Content_2 = () => {
                     noMargin={true}
                     NoRightMargin={true}
                 />
-                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(10)}
-                    closer={() => closer(10)}
-                    img={smartLounge}
-                    isImgOpened={isImgOpened[10]}
-                />
+                <ImgWrapper>
+                    <Img
+                        onClick={() => opener(10)}
+                        closer={() => closer(10)}
+                        img={smartLounge}
+                        isImgOpened={isImgOpened[10]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent text={'편안한 분위기 속에서 공강을 즐길 수 있어요.'} />
@@ -312,20 +312,20 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(11)}
-                    closer={() => closer(11)}
-                    img={psc}
-                    isImgOpened={isImgOpened[11]}
-                    color='white'
-                />
+                    <Img
+                        onClick={() => opener(11)}
+                        closer={() => closer(11)}
+                        img={psc}
+                        isImgOpened={isImgOpened[11]}
+                        color='white'
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent text={'밀린 과제 및 공부를 할 수 있어요.'} />
 
             {/* 4번 */}
             <Title num={'4.'} title={'아산공학관 / 신공학관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'지하 2층'} type={'both'} />
 
             <Text_Img>
@@ -335,12 +335,12 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(12)}
-                    closer={() => closer(12)}
-                    img={ac_ttb}
-                    isImgOpened={isImgOpened[12]}
-                />
+                    <Img
+                        onClick={() => opener(12)}
+                        closer={() => closer(12)}
+                        img={ac_ttb}
+                        isImgOpened={isImgOpened[12]}
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -356,13 +356,13 @@ const Info3Content_2 = () => {
                     NoRightMargin={true}
                 />
                 <ImgWrapper>
-                <Img
-                    onClick={() => opener(13)}
-                    closer={() => closer(13)}
-                    img={ac_lounge}
-                    isImgOpened={isImgOpened[13]}
-                    color='white'
-                />
+                    <Img
+                        onClick={() => opener(13)}
+                        closer={() => closer(13)}
+                        img={ac_lounge}
+                        isImgOpened={isImgOpened[13]}
+                        color='white'
+                    />
                 </ImgWrapper>
             </Text_Img>
             <InfoContent
@@ -373,13 +373,14 @@ const Info3Content_2 = () => {
 
             {/* 5번 */}
             <Title num={'5.'} title={'종합과학관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <Overlay>
                 <InfoContent
                     text={
                         'D동 유연학습공간, Ewha Learning Space 라운지에서 공부, 과제 등을 하며 공강 시간을 보낼 수 있어요.'
                     }
-                    type={'top'} noMargin={true}
+                    type={'top'}
+                    noMargin={true}
                 />
                 <ImgWrapper>
                     <Img
@@ -393,13 +394,14 @@ const Info3Content_2 = () => {
 
             {/* 6번 */}
             <Title num={'6.'} title={'국제교육관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <Overlay>
                 <InfoContent
                     text={
                         '카페 아이엔지에서 맛있는 음료 및 디저트를 먹으며 공강 시간을 보낼 수 있어요.'
                     }
-                    type={'top'} noMargin={true}
+                    type={'top'}
+                    noMargin={true}
                 />
                 <ImgWrapper>
                     <Img
@@ -413,7 +415,7 @@ const Info3Content_2 = () => {
 
             {/* 7번 */}
             <Title num={'1.'} title={'헬렌관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent
                 text={
                     '카페 블루포트(bluepot)에서 맛있는 음료 및 디저트를 먹으며 공강 시간을 보낼 수 있어요.'
@@ -421,11 +423,18 @@ const Info3Content_2 = () => {
                 type={'top'}
             />
             <InfoContent />
-        </div>
+        </Wrapper>
     );
 };
 
 export default Info3Content_2;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+`;
 
 //top에 이미지 들어가야할 때 글자랑 이미지랑 묶기
 const Text_top = styled.div`
@@ -445,13 +454,11 @@ const ImgWrapper = styled.div`
     width: calc(100% - 20px);
     justify-content: end;
     margin-bottom: 2px;
-    
 `;
 
 const Overlay = styled.div`
     display: flex;
     align-items: end;
-    
+
     justify-content: space-between;
 `;
-
