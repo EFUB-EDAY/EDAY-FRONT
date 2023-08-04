@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/quizpage/Header';
 import Btn from '../components/_common/Btn';
-import ewhaGreen from '../assets/answerpage/ewhaGreen.svg';
 import { AnswerContext } from '../components/answerpage/AnswerProvider';
 
 const AnswerPage = () => {
@@ -11,6 +10,7 @@ const AnswerPage = () => {
     const { dDay } = useParams();
     const { quizDescription } = useContext(AnswerContext);
     const { answerContent } = useContext(AnswerContext);
+    const { quizDesImg } = useContext(AnswerContext);
 
     // 퀴즈 줄 개수(dDay)에 따라 정답 버튼과 퀴즈 사이의 간격 &
     // 설명 박스와 '추가정보 보러가기'버튼 사이의 간격 다르게 하기
@@ -45,7 +45,7 @@ const AnswerPage = () => {
                     {quizDescription}
                     {dDay === '1' && (
                         <EwhaGreen>
-                            <img src={ewhaGreen} alt='이화 그린' />
+                            <img src={quizDesImg} alt='이화 그린' />
                         </EwhaGreen>
                     )}
                 </AnswerInfo>
@@ -144,4 +144,9 @@ const TopBtn = styled.div`
 
 const EwhaGreen = styled.div`
     margin-top: 20px;
+
+    & > img {
+        width: 302px;
+        height: 70px;
+    }
 `;

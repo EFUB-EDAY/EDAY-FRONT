@@ -14,6 +14,7 @@ const Option = ({ num }) => {
     const { selectedOption, setSelectedOption } = useContext(AnswerContext);
     const { setAnswerContent } = useContext(AnswerContext);
     const { setTitleImgUrl } = useContext(AnswerContext);
+    const { setQuizDesImg } = useContext(AnswerContext);
 
     //퀴즈 선택지 가져오기
     useEffect(() => {
@@ -48,7 +49,7 @@ const Option = ({ num }) => {
                     // 답이 맞을 경우, answerContent에 답안 텍스트 저장
                     setAnswerContent(getOptionContent(optionNum));
                     setTitleImgUrl(res.data.titleImage);
-                    console.log(res.data.titleImage);
+                    setQuizDesImg(res.data.quizDescriptionImage);
                 } else {
                     // 답이 틀렸을 경우
                     setAnswerContent('');

@@ -8,6 +8,7 @@ export const AnswerProvider = ({ children }) => {
     const [answerContent, setAnswerContent] = useState('');
     const [selectedOption, setSelectedOption] = useState('');
     const [titleImgUrl, setTitleImgUrl] = useState('');
+    const [quizDesImg, setQuizDesImg] = useState('');
 
     return (
         <AnswerContext.Provider
@@ -22,6 +23,8 @@ export const AnswerProvider = ({ children }) => {
                 setSelectedOption,
                 titleImgUrl,
                 setTitleImgUrl,
+                quizDesImg,
+                setQuizDesImg,
             }}
         >
             {children}

@@ -25,7 +25,7 @@ const QuizPage = () => {
             setTimeout(() => {
                 setIsModalOpen(false);
                 navigate(`/answer/${dDay}`);
-            }, 6000);
+            }, 5000);
         }
     };
 
