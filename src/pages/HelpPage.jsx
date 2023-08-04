@@ -133,7 +133,7 @@ const HelpPage = () => {
 export default HelpPage;
 
 const Wrapper = styled.div`
-    margin-top: 57px;
+    margin-top: 30px;
     margin-right: 24px;
     margin-left: 24px;
     text-align: center;
