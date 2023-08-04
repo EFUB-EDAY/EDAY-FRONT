@@ -5,7 +5,6 @@ import styled from 'styled-components';
 // components
 import Header from '../components/quizpage/Header';
 import Option from '../components/quizpage/Option';
-import OptionTemp from '../components/quizpage/OptionTemp';
 import Btn from '../components/_common/Btn';
 import { AnswerContext } from '../components/answerpage/AnswerProvider';
 import TitleModal from '../components/quizpage/TitleModal';
@@ -26,7 +25,7 @@ const QuizPage = () => {
             setTimeout(() => {
                 setIsModalOpen(false);
                 navigate(`/answer/${dDay}`);
-            }, 6000);
+            }, 5000);
         }
     };
 
