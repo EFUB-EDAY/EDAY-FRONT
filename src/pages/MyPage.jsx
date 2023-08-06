@@ -10,14 +10,6 @@ import Profile from '../components/_common/Profile';
 import Modal from '../components/_common/Modal';
 import TitleImg from '../components/mypage/TitleImg';
 
-import pd7 from '../assets/mypage/pd7.svg';
-import pd6 from '../assets/mypage/pd6.svg';
-import pd5 from '../assets/mypage/pd5.svg';
-import pd4 from '../assets/mypage/pd4.svg';
-import pd3 from '../assets/mypage/pd3.svg';
-import pd2 from '../assets/mypage/pd2.svg';
-import pd1 from '../assets/mypage/pd1.svg';
-
 const byeModal = () => {
     return (
         <>
@@ -76,41 +68,40 @@ const MyPage = () => {
         setIsImgOpenedAtIndex(index, false);
     };
 
-    /////////////
+    // 칭호 관련
+    const [title, setTitle] = useState(''); // 유저 프로필
     const [titleList, setTitleList] = useState([]);
+    const [titleImg, setTitleImg] = useState([]); // 획득한 칭호 작은 이미지
+    const [isGetTitle, setIsGetTitle] = useState([]); // 칭호 획득 여부
+    const [titleBigImgs, setTitleBigImgs] = useState([]); // 칭호 큰 이미지
 
-    const [title, setTitle] = useState('');
     useEffect(() => {
         GetTitle()
             .then(res => {
-                console.log(res.data);
                 setTitle(res.data.profile);
-            })
-            .catch(err => console.log(err));
-    }, []);
-
-    useEffect(() => {
-        GetTitle()
-            .then(res => {
                 setTitleList(res.data.titleList);
             })
             .catch(err => console.log(err));
     }, []);
-    useEffect(() => {
-        console.log(titleList);
-    }, [titleList]);
 
-    const titleName = titleList.map(it => (it.getTitle ? it.titleName : null));
-    const getTitleImg = titleList.map(it =>
-        it.getTitle ? it.titleImageUrl : null,
-    );
-    const isGetTitle = titleList.map(it => (it.getTitle ? true : false));
+    useEffect(() => {
+        // 획득한 칭호 작은 이미지
+        setTitleImg(
+            titleList.map(it => (it.getTitle ? it.titleThumbnailUrl : null)),
+        );
+
+        // 칭호 획득 여부
+        setIsGetTitle(titleList.map(it => (it.getTitle ? true : false)));
+
+        // 칭호 큰 이미지
+        setTitleBigImgs(titleList.map(it => it?.titleImageUrl));
+    }, [titleList]);
 
     return (
         <>
             <Wrapper>
                 <Head>
-                    <Profile userName={title.nickname} />
+                    <Profile userName={title?.nickname} />
 
                     <XBtn onClick={goMain} />
                 </Head>
@@ -119,10 +110,10 @@ const MyPage = () => {
                     <Title>획득한 칭호</Title>
                     {/* {titleName[5]} */}
 
-                    <Img_Day>
+                    <ImgDay>
                         <TitleImg
-                            smallImg={getTitleImg[0]}
-                            bigimg={pd7}
+                            smallImg={titleImg[0]}
+                            bigimg={titleBigImgs[0]}
                             day={7}
                             isActive={isGetTitle[0]}
                             isImgOpened={isImgOpened[0]}
@@ -130,8 +121,8 @@ const MyPage = () => {
                             closer={() => imgcloser(0)}
                         />
                         <TitleImg
-                            smallImg={getTitleImg[1]}
-                            bigimg={pd6}
+                            smallImg={titleImg[1]}
+                            bigimg={titleBigImgs[1]}
                             day={6}
                             isActive={isGetTitle[1]}
                             isImgOpened={isImgOpened[1]}
@@ -139,19 +130,19 @@ const MyPage = () => {
                             closer={() => imgcloser(1)}
                         />
                         <TitleImg
-                            smallImg={getTitleImg[2]}
-                            bigimg={pd5}
+                            smallImg={titleImg[2]}
+                            bigimg={titleBigImgs[2]}
                             day={5}
                             isActive={isGetTitle[2]}
                             isImgOpened={isImgOpened[2]}
                             onClick={() => imgopener(2)}
                             closer={() => imgcloser(2)}
                         />
-                    </Img_Day>
-                    <Img_Day>
+                    </ImgDay>
+                    <ImgDay>
                         <TitleImg
-                            smallImg={getTitleImg[3]}
-                            bigimg={pd4}
+                            smallImg={titleImg[3]}
+                            bigimg={titleBigImgs[3]}
                             day={4}
                             isActive={isGetTitle[3]}
                             isImgOpened={isImgOpened[3]}
@@ -160,8 +151,8 @@ const MyPage = () => {
                         />
 
                         <TitleImg
-                            smallImg={getTitleImg[4]}
-                            bigimg={pd3}
+                            smallImg={titleImg[4]}
+                            bigimg={titleBigImgs[4]}
                             day={3}
                             isActive={isGetTitle[4]}
                             isImgOpened={isImgOpened[4]}
@@ -170,19 +161,19 @@ const MyPage = () => {
                         />
 
                         <TitleImg
-                            smallImg={getTitleImg[5]}
-                            bigimg={pd2}
+                            smallImg={titleImg[5]}
+                            bigimg={titleBigImgs[5]}
                             day={2}
                             isActive={isGetTitle[5]}
                             isImgOpened={isImgOpened[5]}
                             onClick={() => imgopener(5)}
                             closer={() => imgcloser(5)}
                         />
-                    </Img_Day>
+                    </ImgDay>
 
                     <TitleImg
-                        smallImg={getTitleImg[6]}
-                        bigimg={pd1}
+                        smallImg={titleImg[6]}
+                        bigimg={titleBigImgs[6]}
                         day={1}
                         isActive={isGetTitle[6]}
                         isImgOpened={isImgOpened[6]}
@@ -278,6 +269,6 @@ const Text = styled.p`
     font-size: 16px;
 `;
 
-const Img_Day = styled.div`
+const ImgDay = styled.div`
     display: flex;
 `;
