@@ -21,6 +21,8 @@ const LoginHandler = () => {
             .catch(error => {
                 alert('로그인에 실패하였습니다.');
                 console.log(error);
+
+                window.location.replace('/login');
             });
     }, []);
 

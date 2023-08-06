@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { GetTitle } from '../api/title';
+import { Logout } from '../api/auth';
 
 import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
@@ -34,6 +36,10 @@ const MyPage = () => {
     const [isLogout, setIsLogout] = useState(false);
     const opener2 = () => setIsLogout(true);
     const closer2 = () => setIsLogout(false);
+
+    useEffect(() => {
+        isLogout && setTimeout(() => Logout(), 300);
+    }, [isLogout]);
 
     //탈퇴 함수 (Delete)
     const yes = () => {
