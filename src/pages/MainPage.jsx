@@ -27,21 +27,11 @@ const MainPage = () => {
     useEffect(() => {
         GetMember()
             .then(res => {
+                console.log(res.data);
                 setQuiz(res.data.quiz);
                 setToday(res.data.profile.dday);
             })
             .catch(err => console.log(err));
-        // 테스트 코드
-        // setToday(5);
-        // setOpenRow(
-        //     [{ dDay: 7 }, { dDay: 6 }, { dDay: 5 }].map(row => row.dDay),
-        // );
-        // setDoneRow([{ dDay: 7 }, { dDay: 6 }].map(row => row.dDay));
-        // setCloseRow(
-        //     [{ dDay: 4 }, { dDay: 3 }, { dDay: 2 }, { dDay: 1 }].map(
-        //         row => row.dDay,
-        //     ),
-        // );
     }, []);
     useEffect(() => {
         if (quiz.openList) setOpenRow(quiz.openList.map(row => row.dday));
