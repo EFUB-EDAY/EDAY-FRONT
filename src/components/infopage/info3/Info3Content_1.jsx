@@ -37,9 +37,9 @@ const Info3Content_1 = () => {
     };
 
     return (
-        <div>
+        <Wrapper>
             <Title num={'1.'} title={'중앙 도서관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
 
             <Text_top>
                 <InfoContent
@@ -68,12 +68,14 @@ const Info3Content_1 = () => {
                     text={'3층, 4층 창의학습실'}
                     NoRightMargin={true}
                 />
-                <Img
-                    onClick={() => handleOpen(1)}
-                    closer={() => handleClose(1)}
-                    img={lib_34f}
-                    isImgOpened={isImgOpened[1]}
-                />
+                <ImgWrapper>
+                    <Img
+                        onClick={() => handleOpen(1)}
+                        closer={() => handleClose(1)}
+                        img={lib_34f}
+                        isImgOpened={isImgOpened[1]}
+                    />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 type={'smallDot'}
@@ -87,12 +89,14 @@ const Info3Content_1 = () => {
                     text={'4층 소곤소곤 라운지'}
                     NoRightMargin={true}
                 />
-                <Img
-                    onClick={() => handleOpen(2)}
-                    closer={() => handleClose(2)}
-                    img={lib_sgsg}
-                    isImgOpened={isImgOpened[2]}
-                />
+                <ImgWrapper>
+                    <Img
+                        onClick={() => handleOpen(2)}
+                        closer={() => handleClose(2)}
+                        img={lib_sgsg}
+                        isImgOpened={isImgOpened[2]}
+                    />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 type={'smallDot'}
@@ -100,12 +104,14 @@ const Info3Content_1 = () => {
             />
             <Text_Img>
                 <InfoContent text={'5층 서가'} NoRightMargin={true} />
-                <Img
-                    onClick={() => handleOpen(3)}
-                    closer={() => handleClose(3)}
-                    img={lib_5f}
-                    isImgOpened={isImgOpened[3]}
-                />
+                <ImgWrapper>
+                    <Img
+                        onClick={() => handleOpen(3)}
+                        closer={() => handleClose(3)}
+                        img={lib_5f}
+                        isImgOpened={isImgOpened[3]}
+                    />
+                </ImgWrapper>
             </Text_Img>
             <InfoContent
                 type={'smallDot'}
@@ -116,7 +122,7 @@ const Info3Content_1 = () => {
 
             {/* 2번 */}
             <Title num={'2.'} title={'음악도서관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent type={'top'} text={'위치 : 음악관 2층'} />
             <InfoContent text={'이용시간'} />
             <InfoContent
@@ -147,7 +153,7 @@ const Info3Content_1 = () => {
 
             {/* 3번 */}
             <Title num={'3.'} title={'신학도서관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'위치 : 대학교회 1층'} type={'top'} />
             <InfoContent text={'이용시간'} />
             <InfoContent
@@ -174,7 +180,7 @@ const Info3Content_1 = () => {
 
             {/* 4번 */}
             <Title num={'4.'} title={'공학도서관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'위치 : 신공학관 2층'} type={'top'} />
             <InfoContent text={'이용시간'} />
             <InfoContent
@@ -195,7 +201,7 @@ const Info3Content_1 = () => {
 
             {/* 5번 */}
             <Title num={'5.'} title={'법학도서관'} />
-            <GreenBorder />
+            <GreenBorder type='info' />
             <InfoContent text={'위치 : 중앙도서관 5층'} type={'top'} />
             <InfoContent text={'이용시간'} />
             <InfoContent text={'학기 중 : 평일 09:00-22:00'} noMargin={true} />
@@ -224,11 +230,18 @@ const Info3Content_1 = () => {
             />
 
             <InfoContent text={'  '} />
-        </div>
+        </Wrapper>
     );
 };
 
 export default Info3Content_1;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+`;
 
 //top에 이미지 들어가야할 때 글자랑 이미지랑 묶기
 const Text_top = styled.div`
@@ -242,6 +255,22 @@ const Text_Img = styled.div`
 `;
 
 //맨 처음 이미지 위치 조정
+// const ImgWrapper = styled.div`
+//     margin-bottom: 5px;
+// `;
+
 const ImgWrapper = styled.div`
-    margin-bottom: 5px;
+    position: absolute;
+    display: flex;
+    width: calc(100% - 20px);
+    justify-content: end;
+    margin-bottom: 2px;
+    align-items: center;
+`;
+
+const Overlay = styled.div`
+    display: flex;
+    align-items: end;
+
+    justify-content: space-between;
 `;

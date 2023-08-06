@@ -65,7 +65,7 @@ const Top = styled.div`
     display: flex;
     justify-content: space-between;
 
-    margin-top: 59px;
+    margin-top: 57px;
     margin-bottom: 57px;
 `;
 

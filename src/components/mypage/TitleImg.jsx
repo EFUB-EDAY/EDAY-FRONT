@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import XBtn from '../_common/XBtn';
 import React from 'react';
 import { useMemo } from 'react';
 
@@ -7,7 +6,11 @@ const Img = React.memo(
     ({ smallImg, isImgOpened, closer, bigimg, onClick, day, isActive }) => {
         const imgIconContent = useMemo(() => {
             return isActive ? (
-                <img src={smallImg} onClick={onClick} />
+                <img
+                    src={smallImg}
+                    onClick={onClick}
+                    style={{ width: '92px', height: '92px' }}
+                />
             ) : (
                 <NoImg />
             );
@@ -23,14 +26,9 @@ const Img = React.memo(
                 {isImgOpened ? (
                     <Container>
                         <Background onClick={closer} />
-                        <Img_Btn>
-                            <ModalBlock>
-                                <img src={bigimg} />
-                                <OverlayBtn>
-                                    <XBtn option={'sidebar'} onClick={closer} />
-                                </OverlayBtn>
-                            </ModalBlock>
-                        </Img_Btn>
+                        <ModalBlock>
+                            <BigImg src={bigimg} />
+                        </ModalBlock>
                     </Container>
                 ) : null}
             </div>
@@ -45,6 +43,7 @@ const ImgIcon = styled.div`
     margin-right: 8px;
     margin-bottom: 12px;
 `;
+
 const NoImg = styled.div`
     width: 92px;
     height: 92px;
@@ -61,7 +60,6 @@ const Container = styled.div`
     left: 0;
     display: flex;
     align-items: center;
-
     justify-content: center;
     background-color: transparent;
 `;
@@ -81,6 +79,9 @@ const Background = styled.div`
             opacity: 1;
         }
     }
+    @media (min-width: 576px) {
+        width: 390px;
+    }
 `;
 
 const ModalBlock = styled.div`
@@ -89,7 +90,7 @@ const ModalBlock = styled.div`
     animation: modal-show 0.3s;
 
     display: flex;
-    justify-content: end;
+    justify-content: center;
 
     @keyframes modal-show {
         from {
@@ -101,17 +102,14 @@ const ModalBlock = styled.div`
             margin-top: 0;
         }
     }
+
+    @media (min-width: 576px) {
+        width: calc(390px - 48px);
+    }
 `;
 
-const OverlayBtn = styled.div`
-    position: absolute;
-`;
-
-const Img_Btn = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 48px;
+const BigImg = styled.img`
+    width: calc(100% - 48px);
 `;
 
 const Dday = styled.p`

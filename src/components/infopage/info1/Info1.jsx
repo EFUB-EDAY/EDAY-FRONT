@@ -60,7 +60,7 @@ const Header = styled.div`
     width: calc(100% - 48px);
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
+    margin: 57px 0;
 `;
 const Body = styled.div`
     display: flex;

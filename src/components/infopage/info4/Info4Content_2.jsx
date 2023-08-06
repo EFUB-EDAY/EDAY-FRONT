@@ -183,8 +183,7 @@ const Info4Content_2 = () => {
             <Overlay>
                 <InfoContent
                     type={'smallDot'}
-                    text={`ECC에는 English Lounge가 있어요. 일정만 잡으면 원어민과
-                    자유롭게 영어로 대화할 수 있답니다!`}
+                    text={`ECC에는 English Lounge가 있어요. 일정만 잡으면 원어민과 자유롭게 영어로 대화할 수 있답니다!`}
                     noMargin={true}
                 />
                 <ImgWrapper>
@@ -193,9 +192,10 @@ const Info4Content_2 = () => {
                         closer={handleClose}
                         img={englishlounge}
                         isImgOpened={isImgOpened}
+                        color='white'
                     />
-                </ImgWrapper>
-            </Overlay>
+                </ImgWrapper> 
+             </Overlay> 
             <InfoContent />
             <InfoContent />
         </div>
@@ -208,14 +208,15 @@ export default Info4Content_2;
 const ImgWrapper = styled.div`
     position: absolute;
     display: flex;
+    width: calc(100% - 24px);
     justify-content: end;
-
-    margin-right: 120px;
     margin-bottom: 2px;
+    align-items: center;
 `;
 
 const Overlay = styled.div`
     display: flex;
     align-items: end;
-    justify-content: end;
+    
+    justify-content: space-between;
 `;

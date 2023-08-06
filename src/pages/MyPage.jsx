@@ -1,21 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { GetTitle } from '../api/title';
 
 import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
 import Profile from '../components/_common/Profile';
 import Modal from '../components/_common/Modal';
 import TitleImg from '../components/mypage/TitleImg';
-
-// 이미지
-import d7 from '../assets/mypage/d7.svg';
-import d6 from '../assets/mypage/d6.svg';
-import d5 from '../assets/mypage/d5.svg';
-import d4 from '../assets/mypage/d4.svg';
-import d3 from '../assets/mypage/d3.svg';
-import d2 from '../assets/mypage/d2.svg';
-import d1 from '../assets/mypage/d1.svg';
 
 const byeModal = () => {
     return (
@@ -50,77 +43,142 @@ const MyPage = () => {
         console.log('탈퇴 함수');
     };
 
-    //칭호 관리
-    // const [isActive, setIsActive] = useState(Array(8).fill(true));
+    const navigate = useNavigate();
+    const goMain = () => {
+        navigate(`/`);
+    };
 
-    // //이미지 열렸는지 여부
-    // const [isImgOpened, setIsImgOpened] = useState(Array(8).fill(false));
+    //모달 이미지 오픈 여부
+    const [isImgOpened, setIsImgOpened] = useState(Array(8).fill(false));
 
-    // //칭호 배열의 특정 인덱스의 값을 변경하는 함수
-    // const setIsImgOpenedAtIndex = (index, value) => {
-    //     setIsImgOpened(prevState => {
-    //         const newState = [...prevState];
-    //         newState[index] = value;
-    //         return newState;
-    //     });
-    // };
+    // 배열의 특정 인덱스의 값을 변경하는 함수
+    const setIsImgOpenedAtIndex = (index, value) => {
+        setIsImgOpened(prevState => {
+            const newState = [...prevState];
+            newState[index] = value;
+            return newState;
+        });
+    };
 
-    // const imgopener = index => {
-    //     setIsImgOpenedAtIndex(index, true);
-    // };
+    const imgopener = index => {
+        setIsImgOpenedAtIndex(index, true);
+    };
 
-    // const imgcloser = index => {
-    //     setIsImgOpenedAtIndex(index, false);
-    // };
+    const imgcloser = index => {
+        setIsImgOpenedAtIndex(index, false);
+    };
 
-    // const [isActive_7, setIsActive_7] = useState(true);
+    // 칭호 관련
+    const [title, setTitle] = useState(''); // 유저 프로필
+    const [titleList, setTitleList] = useState([]);
+    const [titleImg, setTitleImg] = useState([]); // 획득한 칭호 작은 이미지
+    const [isGetTitle, setIsGetTitle] = useState([]); // 칭호 획득 여부
+    const [titleBigImgs, setTitleBigImgs] = useState([]); // 칭호 큰 이미지
 
-    // const [isImgOpened_7, setIsImgOpened_7] = useState(false);
-    // const imgopener_7 = setIsImgOpened_7(true);
-    // const imgcloser_7 = setIsImgOpened_7(false);
+    useEffect(() => {
+        GetTitle()
+            .then(res => {
+                setTitle(res.data.profile);
+                setTitleList(res.data.titleList);
+            })
+            .catch(err => console.log(err));
+    }, []);
+
+    useEffect(() => {
+        // 획득한 칭호 작은 이미지
+        setTitleImg(
+            titleList.map(it => (it.getTitle ? it.titleThumbnailUrl : null)),
+        );
+
+        // 칭호 획득 여부
+        setIsGetTitle(titleList.map(it => (it.getTitle ? true : false)));
+
+        // 칭호 큰 이미지
+        setTitleBigImgs(titleList.map(it => it?.titleImageUrl));
+    }, [titleList]);
 
     return (
         <>
             <Wrapper>
                 <Head>
-                    <Profile userName={'이화연'} />
+                    <Profile userName={title?.nickname} />
 
-                    <XBtn />
+                    <XBtn onClick={goMain} />
                 </Head>
                 <GreenBorder />
                 <Container>
                     <Title>획득한 칭호</Title>
-                    <Img_Day>
+                    {/* {titleName[5]} */}
+
+                    <ImgDay>
                         <TitleImg
-                            smallImg={d7}
-                            bigimg={d7}
+                            smallImg={titleImg[0]}
+                            bigimg={titleBigImgs[0]}
                             day={7}
-                            isActive={true}
+                            isActive={isGetTitle[0]}
+                            isImgOpened={isImgOpened[0]}
+                            onClick={() => imgopener(0)}
+                            closer={() => imgcloser(0)}
                         />
                         <TitleImg
-                            smallImg={d6}
-                            bigimg={d7}
+                            smallImg={titleImg[1]}
+                            bigimg={titleBigImgs[1]}
                             day={6}
-                            isActive={true}
+                            isActive={isGetTitle[1]}
+                            isImgOpened={isImgOpened[1]}
+                            onClick={() => imgopener(1)}
+                            closer={() => imgcloser(1)}
                         />
                         <TitleImg
-                            smallImg={d5}
-                            bigimg={d7}
+                            smallImg={titleImg[2]}
+                            bigimg={titleBigImgs[2]}
                             day={5}
-                            isActive={true}
+                            isActive={isGetTitle[2]}
+                            isImgOpened={isImgOpened[2]}
+                            onClick={() => imgopener(2)}
+                            closer={() => imgcloser(2)}
                         />
-                    </Img_Day>
-                    <Img_Day>
-                        <TitleImg smallImg={d4} bigimg={d7} day={4} />
-                        <TitleImg smallImg={d3} bigimg={d7} day={3} />
-                        <TitleImg smallImg={d2} bigimg={d7} day={2} />
-                    </Img_Day>
+                    </ImgDay>
+                    <ImgDay>
+                        <TitleImg
+                            smallImg={titleImg[3]}
+                            bigimg={titleBigImgs[3]}
+                            day={4}
+                            isActive={isGetTitle[3]}
+                            isImgOpened={isImgOpened[3]}
+                            onClick={() => imgopener(3)}
+                            closer={() => imgcloser(3)}
+                        />
+
+                        <TitleImg
+                            smallImg={titleImg[4]}
+                            bigimg={titleBigImgs[4]}
+                            day={3}
+                            isActive={isGetTitle[4]}
+                            isImgOpened={isImgOpened[4]}
+                            onClick={() => imgopener(4)}
+                            closer={() => imgcloser(4)}
+                        />
+
+                        <TitleImg
+                            smallImg={titleImg[5]}
+                            bigimg={titleBigImgs[5]}
+                            day={2}
+                            isActive={isGetTitle[5]}
+                            isImgOpened={isImgOpened[5]}
+                            onClick={() => imgopener(5)}
+                            closer={() => imgcloser(5)}
+                        />
+                    </ImgDay>
 
                     <TitleImg
-                        smallImg={d1}
-                        bigimg={d7}
+                        smallImg={titleImg[6]}
+                        bigimg={titleBigImgs[6]}
                         day={1}
-                        isActive={true}
+                        isActive={isGetTitle[6]}
+                        isImgOpened={isImgOpened[6]}
+                        onClick={() => imgopener(6)}
+                        closer={() => imgcloser(6)}
                     />
                 </Container>
             </Wrapper>
@@ -165,15 +223,15 @@ const MyPage = () => {
 export default MyPage;
 
 const Wrapper = styled.div`
-    margin-top: 12px;
+    margin-top: 57px;
     margin-right: 24px;
     margin-left: 24px;
     /* text-align: center; */
 `;
 
 const Title = styled.p`
-    font-family: Pretendard;
-    font-weight: 700;
+    font-weight: 500;
+
     font-size: 20px;
     margin-bottom: 8px;
 `;
@@ -198,18 +256,19 @@ const Container = styled.div`
 const Footer = styled.div`
     background-color: #37ae75;
     color: white;
-    height: 160px;
+    height: 180px;
     padding-top: 16px;
+    width: 100%;
 `;
 
 const Text = styled.p`
     margin-left: 24px;
     margin-bottom: 10px;
-    font-family: Pretendard;
+
     font-weight: 600;
     font-size: 16px;
 `;
 
-const Img_Day = styled.div`
+const ImgDay = styled.div`
     display: flex;
 `;

@@ -12,7 +12,9 @@ const Option = ({ num }) => {
     const { setIsAnswer } = useContext(AnswerContext);
     const { setQuizDescription } = useContext(AnswerContext);
     const { selectedOption, setSelectedOption } = useContext(AnswerContext);
-    const { answerContent, setAnswerContent } = useContext(AnswerContext);
+    const { setAnswerContent } = useContext(AnswerContext);
+    const { setTitleImgUrl } = useContext(AnswerContext);
+    const { setQuizDesImg } = useContext(AnswerContext);
 
     //퀴즈 선택지 가져오기
     useEffect(() => {
@@ -46,6 +48,8 @@ const Option = ({ num }) => {
                 if (res.data.answer) {
                     // 답이 맞을 경우, answerContent에 답안 텍스트 저장
                     setAnswerContent(getOptionContent(optionNum));
+                    setTitleImgUrl(res.data.titleImage);
+                    setQuizDesImg(res.data.quizDescriptionImage);
                 } else {
                     // 답이 틀렸을 경우
                     setAnswerContent('');
@@ -71,6 +75,7 @@ const Option = ({ num }) => {
                         {getOptionContent(2)}
                     </OptionBox>
                     <OptionBox
+                        className='last'
                         onClick={() => handleOptionClick(3)}
                         isselected={selectedOption === 3}
                     >
@@ -113,7 +118,7 @@ const OptionBox = styled.div`
     text-align: center;
     color: ${props => (props.isselected ? 'var(--white)' : 'var(--black)')};
     cursor: pointer;
-    transition: background-color 100ms ease-in;
+    transition: background-color 150ms ease-in;
 
     &.last {
         margin-bottom: 0;

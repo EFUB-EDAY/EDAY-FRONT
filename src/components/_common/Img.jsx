@@ -3,7 +3,18 @@ import styled from 'styled-components';
 import XBtn from './XBtn';
 import { useEffect } from 'react';
 
-const Img = ({ isImgOpened, closer, img, onClick, color }) => {
+// type이 info7이면 터치 영역, 생략 시 이미지 아이콘
+// type이 info7인 경우 positionX, positionY 값도 함께 전달 (좌표)
+const Img = ({
+    type,
+    positionX,
+    positionY,
+    isImgOpened,
+    closer,
+    img,
+    onClick,
+    color,
+}) => {
     useEffect(() => {
         if (isImgOpened) {
             document.body.style.cssText = `
@@ -20,9 +31,14 @@ const Img = ({ isImgOpened, closer, img, onClick, color }) => {
     }, [isImgOpened]);
     return (
         <>
-            <ImgIcon>
-                <img src={imageSrc} onClick={onClick} />
-            </ImgIcon>
+            {type === 'info7' ? (
+                <TouchArea top={positionY} left={positionX} onClick={onClick} />
+            ) : (
+                <ImgIcon>
+                    <img src={imageSrc} onClick={onClick} />
+                </ImgIcon>
+            )}
+
             {isImgOpened ? (
                 <Container>
                     <Background onClick={closer} />
@@ -48,6 +64,19 @@ const Img = ({ isImgOpened, closer, img, onClick, color }) => {
 };
 
 export default Img;
+
+const TouchArea = styled.div`
+    z-index: 5;
+    position: absolute;
+    width: 16px;
+    height: 20px;
+    top: ${props => props.top};
+    left: ${props => props.left};
+
+    opacity: 0;
+    background-color: black;
+    cursor: pointer;
+`;
 
 const ImgIcon = styled.div`
     cursor: pointer;
