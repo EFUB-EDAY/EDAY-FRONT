@@ -12,13 +12,11 @@ import TitleModal from '../components/quizpage/TitleModal';
 const QuizPage = () => {
     const { dDay } = useParams();
     const navigate = useNavigate();
-    const [isCorrect, setIsCorrect] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showRetry, setShowRetry] = useState(false);
     const { isAnswer } = useContext(AnswerContext);
 
     const handleCheckAnswer = () => {
-        setIsCorrect(isAnswer); //isAnswer가 true면 retry가 안뜸
-
         if (isAnswer) {
             //modal+confetti 띄우기
             setIsModalOpen(true);
@@ -26,6 +24,11 @@ const QuizPage = () => {
                 setIsModalOpen(false);
                 navigate(`/answer/${dDay}`);
             }, 5000);
+        } else {
+            setShowRetry(true);
+            setTimeout(() => {
+                setShowRetry(false);
+            }, 1200);
         }
     };
 
@@ -56,7 +59,11 @@ const QuizPage = () => {
             <Header num={dDay} />
             <Option num={dDay} />
             <BtnWrapper style={{ marginTop: btnMargin }}>
-                {isCorrect ? <Retry /> : <Retry>다시 생각해보세요!</Retry>}
+                {showRetry ? (
+                    <Retry showRetry={showRetry}>다시 생각해보세요!</Retry>
+                ) : (
+                    <Retry />
+                )}
                 {isModalOpen && <TitleModal />}
                 <Btn
                     type='deepGreen'
@@ -97,18 +104,20 @@ const Retry = styled.div`
     font-weight: 500;
     color: var(--pink);
     animation: shake 1s infinite;
+    opacity: ${({ showRetry }) => (showRetry ? 1 : 0)};
+    transition: opacity 0.5s ease-in-out;
     @keyframes shake {
         0% {
             transform: translateX(0);
         }
         25% {
-            transform: translateX(-3px);
+            transform: translateX(-2px);
         }
         50% {
-            transform: translateX(3px);
+            transform: translateX(2px);
         }
         75% {
-            transform: translateX(-3px);
+            transform: translateX(-2px);
         }
         100% {
             transform: translateX(0);
